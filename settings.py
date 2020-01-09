@@ -29,6 +29,21 @@ USE_POINTS = True
 
 ROOMS = []
 
+SESSION_CONFIGS = [
+    dict(
+        name='Matching_Game',
+        num_demo_participants=1,
+        app_sequence=[
+            'Introduction',
+            'Piece_Rate',
+            'Tournament',
+            'Choice',
+            'Choice_II',
+            'Investment_Decision',
+            'Conclusion']
+    ),
+]
+
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
