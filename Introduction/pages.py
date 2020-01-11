@@ -6,6 +6,16 @@ from .models import Constants
 class Intro(Page):
     pass
 
+class Instructions(Page):
+    pass
+
+class Matching_Task(Page):
+    pass
+
+class Pratice(Page):
+    pass
 
 
-page_sequence = [Intro]
+
+
+page_sequence = [Intro, Instructions, Matching_Task, Practice]
