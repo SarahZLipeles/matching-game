@@ -1,4 +1,4 @@
-from os import environ
+from os import environ, path
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.
@@ -44,6 +44,10 @@ SESSION_CONFIGS = [
     ),
 ]
 
+# STATICFILES_DIRS = [
+#     path.join(".", "_static/javascript")
+# ]
+
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
@@ -53,4 +57,4 @@ DEMO_PAGE_INTRO_HTML = """ """
 SECRET_KEY = '$n1yiypa)xa!2(q+xcb#-b5os0@8hmur!42-w*nq!mmuk06$c7'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = ['otree', 'custom_templates']

@@ -1,0 +1,18 @@
+
+{% block content %}
+<p><b>Please click NEXT when you are ready.</b></p>
+<div class="row">
+    <div class="col-11"></div>
+    <button class="col-1 next_button btn btn-outline-dark" style="display:none;">NEXT</button>
+</div>
+{% endblock %}
+
+{% block show_button_script %}
+    <script type="text/javascript">$(() => {
+        $('.next_button').hide();
+            setTimeout(() => {
+                $('.next_button').show();
+            }, 2000);
+        });
+    </script>
+{% endblock %}
