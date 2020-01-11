@@ -1,5 +1,6 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% load custom_tags %}
 
 {% block title %}
     Thank you for participating in our study.
@@ -14,6 +15,12 @@
         We anticipate that this study will take approximately 1 hour. At the end, you will receive a participation payment of $6.50. In addition to this, you will have the opportunity to make more money during this study. Your entire payment ($6.50 + whatever additional amount you earn) will be paid to you via the Prolific platform once your responses have been validated (usually within 48 hours of your participation).
     </p>
 
-    {% next_button %}
+    <p>
+        Your participation will be kept confidential and your answers will be kept anonymous.
+    </p>
+
+    <br>
+
+    {% delayed_next %}
 
 {% endblock %}
