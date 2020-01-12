@@ -1,0 +1,21 @@
+{% load static %}
+
+{% block matrix_styles %}
+    <link rel="stylesheet" href="{% static "global/_matching_box.css" %}">
+{% endblock %}
+
+{% block matrix %}
+<div class="btn-group btn-group-toggle btn-matrix col" data-toggle="buttons">
+  <button type="button" class="btn btn-outline-dark col-4">8</button>
+  <button type="button" class="btn btn-outline-dark col-4">3</button>
+  <button type="button" class="btn btn-outline-dark col-4">8</button>
+  <button type="button" class="btn btn-outline-dark col-4">7</button>
+  <button type="button" class="btn btn-success col-4 disabled">Submit</button>
+  <button type="button" class="btn btn-outline-dark col-4">6</button>
+  <button type="button" class="btn btn-outline-dark col-4">8</button>
+  <button type="button" class="btn btn-outline-dark col-4">1</button>
+  <button type="button" class="btn btn-outline-dark col-4">5</button>
+</div>
+{% endblock %}
+
+

@@ -1,13 +1,23 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
-{% load custom_tags %}
+<!-- {% load custom_tags %} -->
 
 {% block title %}
     Practice Matching Task
 {% endblock %}
 
 {% block content %}
-    <h2>3 PRACTICE BOXES HERE</h2>
+    <div class="row align-items-center justify-content-center">
+        <div class="hidden-matching-box">
+            {% matching_box %}
+        </div>
+        <div class="hidden-matching-box" hidden>
+            {% matching_box %}
+        </div>
+        <div class="hidden-matching-box" hidden>
+            {% matching_box %}
+        </div>
+    </div>
 
     <p>
         Above, you see a box with eight numbers in it. Out of these eight numbers, your task is to select the two numbers which add up to exactly ten. As soon as you select the correct two numbers that add up to ten, another box will appear.
