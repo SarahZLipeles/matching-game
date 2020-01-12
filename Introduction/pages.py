@@ -12,7 +12,7 @@ class Instructions(Page):
 class Matching_Task(Page):
     pass
 
-class Pratice(Page):
+class Practice(Page):
     pass
 
 
