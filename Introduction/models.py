@@ -32,5 +32,5 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    Matching_Task_Box = models.StringField()
+    Matching_Task_Box = models.StringField(blank=True)
     pass
