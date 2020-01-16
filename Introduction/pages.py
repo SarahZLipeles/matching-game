@@ -15,6 +15,8 @@ class Matching_Task(Page):
     pass
 
 class Practice(Page):
+    form_model = 'player'
+    form_fields = ['Practice_Box']
     pass
 
 
