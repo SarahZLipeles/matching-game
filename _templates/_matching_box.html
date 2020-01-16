@@ -1,25 +1,29 @@
 {% load static %}
 
 {% block matrix_styles %}
-    <link rel="stylesheet" href="{% static "global/_matching_box.css" %}">
+<link rel="stylesheet" href="{% static "global/_matching_box.css" %}">
 {% endblock %}
 
 {% block matrix %}
-<input name="{{matching_box_id}}" type="hidden" class="input-matrix" choices="{{choices}}" rounds={{rounds}}></input>
-<div class="btn-group btn-group-toggle btn-matrix col" data-toggle="buttons">
-    {% for choice in choices %}
+<div class="row">
+    <div class="col"></div>
+    <input name="{{matching_box_id}}" type="hidden" class="input-matrix" choices="{{choices}}"
+        rounds={{rounds}}></input>
+    <div class="btn-group btn-group-toggle btn-matrix col" data-toggle="buttons">
+        {% for choice in choices %}
         {% if choice == 0 %}
-            <button type="button" class="btn btn-success col-4 submit-button">Submit</button>
+        <button type="button" class="btn btn-success col-4 submit-button">Submit</button>
         {% else %}
-            <button type="button"
-                class="
+        <button type="button" class="
                     btn
                     btn-outline-dark
                     col-4 matrix-option
                     active mat-button-{{ forloop.counter0 }}
                     " aria-pressed="true" value="{{choice}}">{{choice}}</button>
         {% endif %}
-    {% endfor %}
+        {% endfor %}
+    </div>
+    <div class="col"></div>
 </div>
 {% endblock %}
 
@@ -43,8 +47,8 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="submit-modal" tabindex="-1" role="dialog"
-    aria-labelledby="submit-modal-label" aria-hidden="true">
+<div class="modal fade" id="submit-modal" tabindex="-1" role="dialog" aria-labelledby="submit-modal-label"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -68,17 +72,18 @@
 
 
 {% block js_scripts %}
-    <script type="text/javascript">$(() => {
+<script type="text/javascript">
+    $(() => {
         const toggles = [];
         const choices = JSON.parse($("input.input-matrix").attr("choices"));
         for (let i = 0; i < choices.length; i++) {
             toggles.push(true);
-            $(".matrix-option.mat-button-"+i).click(function() {
+            $(".matrix-option.mat-button-" + i).click(function () {
                 toggles[i] = !toggles[i];
                 $(this).attr("aria-pressed", toggles[i]);
             });
         }
-        $(".submit-button").click(function() {
+        $(".submit-button").click(function () {
             const selected = [];
             for (let i = 0; i < toggles.length; i++) {
                 if (toggles[i] && parseInt(choices[i])) {
@@ -92,7 +97,7 @@
             }
             const rounds = $("input.input-matrix").attr("rounds");
             const oldVal = $("input.input-matrix").attr("value");
-            if(!oldVal || oldVal.length === 0) {
+            if (!oldVal || oldVal.length === 0) {
                 $("input.input-matrix").attr("value", JSON.stringify([selected]));
             } else {
                 const prevVal = JSON.parse($("input.input-matrix").attr("value"));
@@ -108,6 +113,5 @@
             $('#submit-modal').modal('show');
         });
     });
-    </script>
+</script>
 {% endblock %}
-
