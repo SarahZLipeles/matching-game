@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 1 – Piece Rate
+{% endblock %}
+
+{% block content %}
+    <p>
+        For Game 1, you will be asked to complete The Matching Tasks. To remind you, in The Matching Tasks, you will see series of boxes with eight numbers in them as presented below. Out of these eight numbers, your task is to select the two numbers which add up to exactly ten. As soon as you select the two numbers that add up to ten, another box will appear.
+    </p>
+
+    {% matching_box rounds=1000 %}
+
+    <p>
+        You will be given 3 minutes to complete as many boxes as possible. If Game 1 is randomly selected for payment, then you get 50 cents per each box you completed successfully in the 5 minutes. Your payment does not decrease if you select an incorrect pair. We only count the boxes that you complete successfully. We refer to this payment as the piece rate payment, since you will be paid for each completed box.
+    </p>
+
+    <br>
+
+    <p>
+        You are now ready to start Game-1.  Remember, you will have 3 minutes to complete this game.
+    </p>
+
+    <br>
+
+    {% delayed_next %}
+
+{% endblock %}

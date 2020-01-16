@@ -3,17 +3,15 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
+class Game_1(Page):
+    timeout_seconds = 300
+    form_model = 'player'
+    form_fields = ['Game_1_Box', "Game_1_Total"]
+    pass
+
+class Instructions(Page):
     pass
 
 
-class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
-        pass
 
-
-class Results(Page):
-    pass
-
-
-page_sequence = [MyPage, ResultsWaitPage, Results]
+page_sequence = [Instructions, Game_1]

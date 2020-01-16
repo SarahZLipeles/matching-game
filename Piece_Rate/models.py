@@ -32,4 +32,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    Game_1_Box = models.StringField(blank=True)
+    Game_1_Total = models.IntegerField()
     pass

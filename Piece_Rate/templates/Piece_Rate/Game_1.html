@@ -1,0 +1,46 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 1 – Piece Rate
+{% endblock %}
+
+{% block content %}
+<input type="hidden" name="Game_1_Total" id="Game_1_Total" value=0></input>
+<!-- <p>
+    <b>Time Left: </b><b id="timer">5:00</b>
+</p> -->
+<p>
+    <b>Total Boxes Completed: </b><b id="scoreboard">0</b>
+</p>
+
+{% matching_box matching_box_id='Piece_Rate_Box' rounds=1000 %}
+
+<br>
+<p>Select the two numbers which add up to exactly ten. You will be paid 50 cents per each box you complete successfully in 5 minutes</p>
+
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(() => {
+            const startTime = new Date();
+            const totalTime = 5000*60;
+            const timer = setInterval(() => {
+                const remainingTime = totalTime - ((new Date()) - startTime);
+                if (remainingTime <= 0) {
+                    clearInterval(timer);
+                    $("#timer").text("0:00");
+                }
+                const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+                $("#timer").text(minutes + (seconds < 10 ? ":0" : ":") + seconds)
+            }, 100);
+            $("#modal-continue").click(function() {
+                $("#Game_1_Total").attr("value", JSON.parse($("input.input-matrix").attr("value")).length);
+                $("#scoreboard").text($("#Game_1_Total").attr("value"));
+            });
+        });
+    </script>
+{% endblock %}
