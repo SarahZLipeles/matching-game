@@ -7,17 +7,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="row align-items-center justify-content-center">
-        <div id="hidden-matching-box-1">
-            {% matching_box %}
-        </div>
-        <div id="hidden-matching-box-2" hidden>
-            {% matching_box %}
-        </div>
-        <div id="hidden-matching-box-3" hidden>
-            {% matching_box %}
-        </div>
-    </div>
+    {% matching_box matching_box_id='Practice_Box' rounds=3 %}
+
 
     <p>
         Above, you see a box with eight numbers in it. Out of these eight numbers, your task is to select the two numbers which add up to exactly ten. As soon as you select the correct two numbers that add up to ten, another box will appear.
