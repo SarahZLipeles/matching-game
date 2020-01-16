@@ -64,6 +64,7 @@
             </div>
             <div class="modal-footer">
                 <button id="modal-continue" type="button" class="btn btn-success" data-dismiss="modal">Continue</button>
+                <button id="modal-finish" class="btn btn-success otree-btn-next next-button otree-next-button" style="display:none;">Finish</button>
             </div>
         </div>
     </div>
@@ -105,8 +106,9 @@
                 $("input.input-matrix").attr("value", JSON.stringify(prevVal));
                 $("input.input-matrix").attr("rounds", rounds - 1);
             }
-            if ($("input.input-matrix").attr("rounds") < 1) {
-                $("#modal-continue").removeAttr("type");
+            if ($("input.input-matrix").attr("rounds") <= 1) {
+                $("#modal-continue").hide();
+                $("#modal-finish").show();
             }
             $("#selection").text(JSON.stringify(selected));
             $("#selection-sum").text(selected[0] + selected[1]);
