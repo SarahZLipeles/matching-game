@@ -76,7 +76,7 @@
 <script type="text/javascript">
     $(() => {
         const toggles = [];
-        const choices = JSON.parse($("input.input-matrix").attr("choices"));
+        let choices = renderBox();
         for (let i = 0; i < choices.length; i++) {
             toggles.push(true);
             $(".matrix-option.mat-button-" + i).click(function () {
@@ -114,6 +114,24 @@
             $("#selection-sum").text(selected[0] + selected[1]);
             $('#submit-modal').modal('show');
         });
+        $('#submit-modal').on('hidden.bs.modal', function () {
+            choices = renderBox();
+            for (let i = 0; i < choices.length; i++) {
+                toggles[i] = true;
+            }
+        });
     });
+
+    function renderBox() {
+        const box = {{boxes}}[Math.floor(Math.random() * {{boxes}}.length)];
+        for (let i = 0; i < box.length; i++) {
+
+            $(".mat-button-" + i).attr("value", box[i]);
+            $(".mat-button-" + i).text(box[i]);
+            $(".mat-button-" + i).attr("aria-pressed", true);
+            $(".mat-button-" + i).addClass("active");
+        }
+        return box;
+    }
 </script>
 {% endblock %}

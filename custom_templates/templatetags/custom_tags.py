@@ -1,6 +1,9 @@
 from django import template
-import os
+import os, json
 register = template.Library()
+
+with open(os.path.join(os.getcwd(), 'boxes.json')) as json_file:
+    boxes = json.load(json_file)
 
 @register.inclusion_tag('_delayed_next.html')
 def delayed_next(wait=2000):
@@ -11,6 +14,7 @@ def matching_box(choices=[8,3,8,7,0,6,8,1,5], matching_box_id="matching_box", ro
     template_vars = {
         "choices": choices,
         "matching_box_id": matching_box_id,
-        "rounds": rounds
+        "rounds": rounds,
+        "boxes": boxes
     }
     return template_vars
