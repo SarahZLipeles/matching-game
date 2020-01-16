@@ -10,6 +10,8 @@ class Instructions(Page):
     pass
 
 class Matching_Task(Page):
+    form_model = 'player'
+    form_fields = ['Matching_Task_Box']
     pass
 
 class Practice(Page):

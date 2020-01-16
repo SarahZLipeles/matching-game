@@ -3,26 +3,30 @@
 <!-- {% load custom_tags %} -->
 
 {% block title %}
-    The Matching Task
+The Matching Task
 {% endblock %}
 
 {% block content %}
-    <p>
-        As mentioned before, you will participate in six games. In some of these games, you will be asked to complete the Matching Task. In The Matching Task, you will see series of boxes with eight numbers in them as presented below. Out of these eight numbers, your task is to select the two numbers which add up to exactly ten. As soon as you select the two numbers that add up to ten, another box will appear.
-    </p>
+<p>
+    As mentioned before, you will participate in six games. In some of these games, you will be asked to complete the
+    Matching Task. In The Matching Task, you will see series of boxes with eight numbers in them as presented below. Out
+    of these eight numbers, your task is to select the two numbers which add up to exactly ten. As soon as you select
+    the two numbers that add up to ten, another box will appear.
+</p>
 
-    <div class="row">
-        <div class="col"></div>
-        {% matching_box %}
-        <div class="col"></div>
-    </div>
+<div class="row">
+    <div class="col"></div>
+    {% matching_box matching_box_id='Matching_Task_Box' %}
+    {{ form.Matching_Task_Box.errors }}
+    <div class="col"></div>
+</div>
 
-    <p>
-        Next, you will participate in a practice matching task to learn how the task works.
-    </p>
+<p>
+    Next, you will participate in a practice matching task to learn how the task works.
+</p>
 
-    <br>
+<br>
 
-    {% delayed_next %}
+{% delayed_next %}
 
 {% endblock %}
