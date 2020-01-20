@@ -3,15 +3,15 @@
 <p><b>Please click {{label}} when you are ready.</b></p>
 <div class="row">
     <div class="col-11"></div>
-    <button class="col-1 next_button btn btn-outline-dark" disabled="true">{{label}}</button>
+    <button class="col-1 next_button btn btn-outline-dark" >{{label}}</button>
 </div>
 {% endblock %}
 
 {% block show_button_script %}
     <script type="text/javascript">$(() => {
         setTimeout(() => {
-            $('.next_button').attr("disabled", "false");
-        }, {{wait}});
+            // $('.next_button').attr("disabled", "false");
+        }, {{wait_time}});
     });
     </script>
 {% endblock %}

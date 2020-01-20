@@ -8,7 +8,7 @@ with open(os.path.join(os.getcwd(), 'boxes.json')) as json_file:
 @register.inclusion_tag('_delayed_next.html')
 def delayed_next(wait=2000, label="NEXT"):
     return {
-        "wait": wait,
+        "wait_time": wait,
         "label": label
     }
 
