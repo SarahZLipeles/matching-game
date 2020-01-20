@@ -58,5 +58,3 @@ SECRET_KEY = '$n1yiypa)xa!2(q+xcb#-b5os0@8hmur!42-w*nq!mmuk06$c7'
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
 INSTALLED_APPS = ['otree', 'custom_templates']
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-otree.settings.augment_settings(globals())
