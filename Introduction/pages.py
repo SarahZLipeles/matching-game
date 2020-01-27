@@ -11,12 +11,12 @@ class Instructions(Page):
 
 class Matching_Task(Page):
     form_model = 'player'
-    form_fields = ['Matching_Task_Box']
+    form_fields = ['counting_box']
     pass
 
 class Practice(Page):
     form_model = 'player'
-    form_fields = ['Practice_Box']
+    form_fields = ['counting_box']
     pass
 
 
