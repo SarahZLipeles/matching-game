@@ -9,12 +9,7 @@ class Intro(Page):
 class Instructions(Page):
     pass
 
-class Matching_Task(Page):
-    form_model = 'player'
-    form_fields = ['counting_box']
-    pass
-
-class Practice(Page):
+class Counting_Task(Page):
     form_model = 'player'
     form_fields = ['counting_box']
     pass
@@ -22,4 +17,4 @@ class Practice(Page):
 
 
 
-page_sequence = [Intro, Instructions, Matching_Task, Practice]
+page_sequence = [Intro, Instructions, Counting_Task]
