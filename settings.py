@@ -1,4 +1,4 @@
-from os import environ, path
+from os import environ
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
 # in SESSION_CONFIGS, except those that explicitly override it.

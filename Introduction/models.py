@@ -32,6 +32,5 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    Matching_Task_Box = models.StringField(blank=True)
-    Practice_Box = models.StringField()
+    counting_box = models.BooleanField()
     pass
