@@ -12,7 +12,6 @@
 {% block show_button_script %}
     <script type="text/javascript">$(() => {
         const wait = {{wait_time}}
-        console.log(wait);
         setTimeout(() => {
             $('#next-section').show();
         }, wait);
