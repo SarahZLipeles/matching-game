@@ -82,16 +82,15 @@
             } else {
                 $('[name="{{field_name}}"]').attr("value", "False")
             }
-            if (answer < 0 || answer > 49) {
+            if (answer >= 0 && answer <= 49) {
+                $('#submit-modal').modal('show');
+                $("#player-answer").text(answer);
+                $("#correct-answer").text({{answer}});
+                $('#answer_input').prop('disabled', true);
+                $('#submit-answer').prop('disabled', true);
+            } else {
                 $('#invalid-selection-modal').modal('show');
-                return;
             }
-
-            $('#submit-modal').modal('show');
-            $("#player-answer").text(answer);
-            $("#correct-answer").text({{answer}});
-            $('#answer_input').prop('disabled', true);
-            $('#submit-answer').prop('disabled', true);
         });
 
         console.log({{answer}});
