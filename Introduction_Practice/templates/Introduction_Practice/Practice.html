@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Practice Counting Task
+{% endblock %}
+
+{% block content %}
+
+    {% counting_box "counting_box" True %}
+
+    <p>
+    Above, you see a box containing 49 ones and zeros. Tour task is to determine the number of zeros in the box. As soon as you complete the box, another box will appear.
+    </p>
+
+{% endblock %}
+
+

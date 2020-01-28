@@ -35,6 +35,7 @@ SESSION_CONFIGS = [
         num_demo_participants=1,
         app_sequence=[
             'Introduction',
+            'Introduction_Practice',
             'Piece_Rate',
             'Tournament',
             'Choice',
