@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 1 – Piece Rate
+{% endblock %}
+
+{% block content %}
+<!-- <p>
+    <b>Time Left: </b><b id="timer">5:00</b>
+</p> -->
+<p>
+    <b>Total Boxes Completed: </b><b id="scoreboard">0</b>
+</p>
+
+{% counting_box "counting_box" True %}
+
+<br>
+<p>Determine the number of zeros in the box. You will be paid 50 cents per each box you complete successfully in 5 minutes</p>
+
+{% endblock %}

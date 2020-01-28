@@ -34,7 +34,10 @@ SESSION_CONFIGS = [
         name='Matching_Game',
         num_demo_participants=1,
         app_sequence=[
-            'Introduction']
+            'Introduction',
+            'Introduction_Practice',
+            'Piece_Rate',
+            'Piece_Rate_Game']
     ),
 ]
 

@@ -62,7 +62,11 @@
                 <p>The correct answer was: <b id="correct-answer"></b></p>
             </div>
             <div class="modal-footer">
-                <button id="modal-continue" type="button" class="btn btn-success" data-dismiss="modal">Continue</button>
+                {% if next_page %}
+                    <button id="modal-continue" class="btn btn-success otree-btn-next next-button otree-next-button">Continue</button>
+                {% else %}
+                    <button id="modal-continue" type="button" class="btn btn-success" data-dismiss="modal">Continue</button>
+                {% endif %}
             </div>
         </div>
     </div>

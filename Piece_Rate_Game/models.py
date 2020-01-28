@@ -18,9 +18,9 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Piece_Rate'
+    name_in_url = 'Piece_Rate_Game'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 1000
 
 
 class Subsession(BaseSubsession):
@@ -32,5 +32,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    counting_box = models.BooleanField()
     pass

@@ -1,17 +1,18 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
+import time
 
-
-class Game_1(Page):
-    timeout_seconds = 300
-    form_model = 'player'
-    form_fields = ['Game_1_Box', "Game_1_Total"]
-    pass
 
 class Instructions(Page):
+    form_model = 'player'
+    form_fields = ['counting_box']
+
+    def before_next_page(self):
+        # user has 5 minutes to complete as many pages as possible
+        self.participant.vars['expiry'] = time.time() + 5*60
     pass
 
 
 
-page_sequence = [Instructions, Game_1]
+page_sequence = [Instructions]
