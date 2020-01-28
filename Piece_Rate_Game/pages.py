@@ -7,7 +7,7 @@ class Game_1(Page):
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def app_after_this_page(self, upcoming_apps):
-        if self.participant.vars['expiry'] - time.time() <= 0:
+        if self.participant.vars['expiry'] - time.time() <= 0 and len(upcoming_apps) > 0:
             return upcoming_apps[0]
     pass
 
