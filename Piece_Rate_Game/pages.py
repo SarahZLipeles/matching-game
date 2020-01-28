@@ -4,6 +4,8 @@ from .models import Constants
 import time
 
 class Game_1(Page):
+    form_model = 'player'
+    form_fields = ['counting_box']
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def app_after_this_page(self, upcoming_apps):
