@@ -15,7 +15,7 @@ def delayed_next(wait=2000, label="NEXT"):
     }
 
 @register.inclusion_tag('_counting_task.html')
-def counting_box(field_name="test", img_set_number=1):
+def counting_box(field_name="test", next_page=False, img_set_number=1):
     img_dir = "%s%d" % (BOXES, img_set_number)
     print(img_dir)
     list_images = os.listdir(path=(img_dir))
@@ -25,5 +25,6 @@ def counting_box(field_name="test", img_set_number=1):
     return {
         "img_name": img,
         "answer": num_zeros,
-        "field_name": field_name
+        "field_name": field_name,
+        "next_page": next_page
     }
