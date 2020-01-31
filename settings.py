@@ -37,7 +37,8 @@ SESSION_CONFIGS = [
             'Introduction',
             'Introduction_Practice',
             'Piece_Rate',
-            'Piece_Rate_Game']
+            'Piece_Rate_Game',
+            'Tournament']
     ),
 ]
 
