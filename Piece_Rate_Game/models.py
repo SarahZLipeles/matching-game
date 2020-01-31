@@ -20,7 +20,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'Piece_Rate_Game'
     players_per_group = None
-    num_rounds = 1000
+    num_rounds = 50
 
 
 class Subsession(BaseSubsession):
@@ -32,5 +32,13 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    counting_box = models.BooleanField()
-    pass
+    counting_box = models.BooleanField(blank=True)
+    def get_score(self):
+        score = 0
+        try:
+            for p in self.in_previous_rounds():
+                score += p.counting_box
+        except:
+            pass
+        return score
+

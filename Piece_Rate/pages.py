@@ -10,7 +10,7 @@ class Instructions(Page):
 
     def before_next_page(self):
         # user has 5 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 5*60
+        self.participant.vars['expiry'] = time.time() + 90
     pass
 
 
