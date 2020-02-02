@@ -1,0 +1,46 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 2 – Tournament
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Thank you for completing Game 1!
+    </p>
+
+    <p>
+        In Game 2, as in Game 1, you will be given 3 minutes to participate in The Matching Task and complete boxes by selecting the two numbers which add up to exactly ten. However, for this game, your payment depends on your performance relative to that of a group of other participants. Each group consists of four people, including you. Next, we explain how your three other group members will be selected.
+    </p>
+
+    <h6>Constructing Groups</h6>
+    <div class="row">
+        <div class="col-1"></div>
+        <p class="col">
+            Previously, a representative group of subjects on Prolific, like yourself, participated in this study. We coded their anonymous answers into this program. In order to construct your group of four, we will randomly select three past participants from this group and use their answers in determination of your earnings for Game 2.
+        </p>
+    </div>
+
+    <h6>Determining Payments</h6>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col">
+            <p>
+                If Game 2 is the one randomly selected for payment, then your earnings depend on the number of boxes you completed compared to the other three people in your group. If you complete more boxes than the other three people in your group, you will be paid some amount per completed box. Otherwise, you will not be paid anything for Game 2. The amount paid per completed box will be randomly determined at the end of the experiment from the following amounts: $0.50, $0.75, $1, $1.25, $1.50, $1.75, $2, $2.25, and $2.50. Each of these prizes has an equal chance of being chosen.
+            </p>
+            <p>
+                We refer to this as the tournament payment. If there are ties the winner will be randomly determined. You will not be informed of how you did in the tournament or the tournament prize until all six tasks have been completed.
+            </p>
+        </div>
+    </div>
+
+    <h6>You are now ready to start Game-2.  Remember, you will have 3 minutes to complete this game.</h6>
+
+    <br>
+
+    {% delayed_next wait=3000 label='START'%}
+
+{% endblock %}
