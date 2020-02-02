@@ -1,3 +1,2 @@
-web: otree runprodserver1of2
+web: yes | otree resetdb && otree runprodserver1of2
 worker: otree runprodserver2of2
-worker: yes | otree resetdb
