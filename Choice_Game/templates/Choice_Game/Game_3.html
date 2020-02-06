@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 1 – Piece Rate
+{% endblock %}
+
+{% block content %}
+<p>
+    <b>Correct Boxes: </b><b id="scoreboard">{{ score }}/{{ round }}</b>
+</p>
+
+{% counting_box "counting_box" True %}
+
+<br>
+<p>Determine the number of zeros in the box. You will receive some amount from {0.5, … 3.5} per box, chosen randomly, if you complete more boxes than your group members for Game 2. Otherwise you will receive nothing.</p>
+
+{% endblock %}

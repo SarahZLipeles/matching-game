@@ -1,0 +1,87 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 2 – Choice
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Thank you for completing Game 2!
+    </p>
+
+    <p>
+        Please select which payment scheme you prefer to apply to your performance in Game-3 for each possible tournament prize. Each prize has an equal chance of being chosen. We ask you to indicate your choices by selecting the lowest tournament prize.
+    </p>
+    <div class="container" style="width:page"></div>
+    <div class="row">
+        <div class="col"></div>
+        <h5 class="col-2">Piece Rate</h5>
+        <h5 class="col-4">Tournament</h5>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col">(Attention check) Please select Piece Rate for this row:</div>
+        <input type="hidden" name="attention_check" value="False"/>
+        <div class="col-1"></div>
+        <div class="col-2 form-check">
+            <label class="col"></label>
+            <input name="attention_check_button" id="attention_check_True" type="radio" class="form-check-input col attention_check_radio">
+        </div>
+        <div class="col-4 form-check">
+            <input name="attention_check_button" id="attention_check_False" type="radio" class="form-check-input col attention_check_radio">
+            <label class="col"></label>
+        </div>
+    </div>
+    <input type="hidden" name="game_3_switch" value="False"/>
+    {% for i in Constants.round_values %}
+        <div class="row">
+            <div class="col">If the tournament prize is {{i}}, which scheme do you choose:</div>
+            <div class="col-2 form-check">
+                <label class="col">$0.50 Piece Rate</label>
+                <input name="__{{i}}" id="switch_point_{{i}}_0" type="radio" class="form-check-input col switch_point">
+            </div>
+            <div class="col-4 form-check">
+                <input name="__{{i}}" id="switch_point_{{i}}_1" type="radio" class="form-check-input col switch_point">
+                <label class="col">{{i}} Tournament Payment</label>
+            </div>
+        </div>
+    {% endfor %}
+    <br>
+
+    {% delayed_next %}
+
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">$(() => {
+        $('.attention_check_radio').click(function() {
+            const idArr = $(this).attr('id').split('_');
+            const val = idArr[idArr.length-1];
+            $('[name="attention_check"]').attr('value', val);
+        });
+        $('.switch_point').click(function() {
+            const idArr = $(this).attr('id').split('_');
+            const side = idArr[idArr.length-1];
+            const val = idArr[idArr.length-2];
+            $('.switch_point').each(function() {
+                const currIdArr = $(this).attr('id').split('_');
+                const currSide = currIdArr[currIdArr.length-1];
+                const currVal = currIdArr[currIdArr.length-2];
+                const after = parseFloat(currVal.slice(1)) > parseFloat(val.slice(1))
+                if (val === currVal) {
+                    if (currSide === '1') {
+                        $('[name="game_3_switch"]').attr('value', currVal);
+                    }
+                    console.log(currVal, currSide, side, side === currSide, this)
+                    $(this).prop('checked', side === currSide);
+                } else {
+                    $(this).prop('checked', after == parseInt(currSide));
+                }
+            });
+        });
+    });
+    </script>
+{% endblock %}
