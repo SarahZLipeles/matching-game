@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 3 – Choice
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Thank you for completing Game 2!
+    </p>
+
+    <p>
+        As in the previous two games, you will be given 3 minutes to complete boxes. However, you will now get to choose which of the two previous payment schemes (piece rate or tournament) you prefer to apply to your performance in the third game. You will make this decision for each possible tournament prize of $0.50, $0.75, $1, $1.25, $1.50, $1.75, $2, $2.25, and $2.50. Each of these prizes has an equal chance of being chosen. After you make your choices, but before you start completing boxes, we will let you which of the prizes were randomly chosen to apply to this task.
+    </p>
+
+    <p>If Game 3 is the one randomly selected for payment, then your earnings for this game are determined as follows:</p>
+    <ul>
+        <li>
+            First, the computer will randomly select the tournament prize.
+        </li>
+        <li>
+            If, for the randomly chosen prize, you chose the piece rate you receive $0.50 per box you complete.
+        </li>
+        <li>
+            If, for the randomly chosen prize, you chose the tournament, your performance will be evaluated relative to the performance of the other three participants of your assigned group in the Game 2-tournament. The Game 2-tournament is the one you just completed. If you complete more boxes than the three other members of your assigned group did in Game 2, then you receive the randomly chosen tournament prize per each box completed. You will receive no earnings for this game if you chose the tournament and one or more of your group members have a higher Game 2-tournament performance than your Game-3 performance. Your group members are the same three individuals as the ones in your assigned group in Game 2. You will not be informed of how you did in the tournament until all six tasks have been completed. If there are ties, the winner will be randomly determined.
+        </li>
+    </ul>
+
+    <p>The next computer screen will ask you to choose whether you want the piece rate or the tournament applied to your performance for each of the tournament prizes of $0.50, $0.75, $1, $1.25, $1.5, $1.75, $2, $2.25, and $2.50. A new screen will then show you the randomly chosen prize and your choice for that prize. You will then start Game-3 and will have 3 minutes to complete boxes.</p>
+
+    <br>
+
+    {% delayed_next %}
+
+{% endblock %}
