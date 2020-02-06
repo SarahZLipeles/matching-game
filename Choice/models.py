@@ -21,6 +21,7 @@ class Constants(BaseConstants):
     name_in_url = 'Choice'
     players_per_group = None
     num_rounds = 1
+    round_values = ["$0.50","$0.75","$1.00","$1.25","$1.50","$1.75","$2.00","$2.25","$2.50"]
 
 
 class Subsession(BaseSubsession):
@@ -32,4 +33,5 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    attention_check = models.BooleanField()
+    game_3_switch = models.StringField()
