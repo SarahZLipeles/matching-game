@@ -45,7 +45,7 @@
             </div>
             <div class="col-4 form-check">
                 <input name="__{{i}}" id="switch_point_{{i}}_1" type="radio" class="form-check-input col switch_point">
-                <label class="col">{{i}} Tournament Payment</label>
+                <label class="col">${{i}} Tournament Payment</label>
             </div>
         </div>
     {% endfor %}
@@ -70,7 +70,7 @@
                 const currIdArr = $(this).attr('id').split('_');
                 const currSide = currIdArr[currIdArr.length-1];
                 const currVal = currIdArr[currIdArr.length-2];
-                const after = parseFloat(currVal.slice(1)) > parseFloat(val.slice(1))
+                const after = parseFloat(currVal) > parseFloat(val)
                 if (val === currVal) {
                     if (currSide === '1') {
                         $('[name="game_3_switch"]').attr('value', currVal);

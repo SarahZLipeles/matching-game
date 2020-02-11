@@ -20,7 +20,8 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'Game_3'
     players_per_group = None
-    num_rounds = 50
+    num_rounds = 9
+    round_values = ["0.50","0.75","1.00","1.25","1.50","1.75","2.00","2.25","2.50"]
 
 
 class Subsession(BaseSubsession):
