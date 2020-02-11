@@ -3,12 +3,16 @@
 {% load custom_tags %}
 
 {% block title %}
-    Game 1 – Piece Rate
+    Game 3 – Piece Rate
 {% endblock %}
 
 {% block content %}
 <p>
     <b>Correct Boxes: </b><b id="scoreboard">{{ score }}/{{ round }}</b>
+</p>
+
+<p>
+    Your Payment Scheme: ${{ value }} {% if peice_rate %} Piece Rate Payment {% else %} Tournament Payment {% endif %}
 </p>
 
 {% counting_box "counting_box" True %}

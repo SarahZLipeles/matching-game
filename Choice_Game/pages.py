@@ -1,7 +1,7 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
-import time
+import time, random
 
 
 class Game_3(Page):
@@ -18,9 +18,13 @@ class Game_3(Page):
         if self.time_remaining() <= 0:
             return upcoming_apps[0]
     def vars_for_template(self):
+        value = random.choice(Constants.round_values)
+        peice_rate = float(value) < float(self.participant.vars['game_3_switch'])
         return {
-            "score": self.player.get_score(),
-            "round": self.player.round_number-1
+            'score': self.player.get_score(),
+            'round': self.player.round_number-1,
+            'peice_rate': peice_rate,
+            'value': value
         }
 
 

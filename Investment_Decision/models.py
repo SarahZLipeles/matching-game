@@ -32,4 +32,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    Points_A = models.IntegerField(min=0, max=100)
+    Points_B = models.IntegerField(min=0, max=100)
     pass

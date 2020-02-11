@@ -12,7 +12,8 @@ class Selection(Page):
     form_fields = ['attention_check', 'game_3_switch']
     def before_next_page(self):
         # user has 5 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 60*3
+        self.participant.vars['game_3_switch'] = self.player.game_3_switch
+        self.participant.vars['expiry'] = time.time() + 90
 
 
 page_sequence = [Instructions, Selection]
