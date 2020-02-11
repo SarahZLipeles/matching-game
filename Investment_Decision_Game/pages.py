@@ -3,8 +3,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 import time
 
-
-class Game_2(Page):
+class Game_5(Page):
     form_model = 'player'
     form_fields = ['counting_box']
     def time_remaining(self):
@@ -16,7 +15,7 @@ class Game_2(Page):
         return remaining_time
     def app_after_this_page(self, upcoming_apps):
         if self.time_remaining() <= 0:
-            self.participant.vars['tournament_score'] = self.player.get_score()
+            self.participant.vars['piece_rate_score'] = self.player.get_score()
             return upcoming_apps[0]
     def vars_for_template(self):
         return {
@@ -25,4 +24,4 @@ class Game_2(Page):
         }
 
 
-page_sequence = [Game_2]
+page_sequence = [Game_5]

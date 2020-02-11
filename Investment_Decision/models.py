@@ -18,7 +18,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Investment_Decision'
+    name_in_url = 'Piece_Rate'
     players_per_group = None
     num_rounds = 1
 
@@ -32,4 +32,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    Points_A = models.IntegerField(min=0, max=100)
+    Points_B = models.IntegerField(min=0, max=100)
     pass

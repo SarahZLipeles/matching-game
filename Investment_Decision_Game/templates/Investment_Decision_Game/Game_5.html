@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 5
+{% endblock %}
+
+{% block content %}
+<!-- <p>
+    <b>Time Left: </b><b id="timer">5:00</b>
+</p> -->
+<p>
+    <b>Correct Boxes: </b><b id="scoreboard">{{ score }}/{{ round }}</b>
+</p>
+
+{% counting_box "counting_box" True %}
+
+<br>
+<p>Determine the number of zeros in the box. You will be paid 50 cents per each box you complete successfully in 90 seconds</p>
+
+{% endblock %}
