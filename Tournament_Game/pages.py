@@ -16,6 +16,7 @@ class Game_2(Page):
         return remaining_time
     def app_after_this_page(self, upcoming_apps):
         if self.time_remaining() <= 0:
+            self.participant.vars['tournament_score'] = self.player.get_score()
             return upcoming_apps[0]
     def vars_for_template(self):
         return {

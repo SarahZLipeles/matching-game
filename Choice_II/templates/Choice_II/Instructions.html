@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 4 – Choice-II
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Thank you for completing Game 2!
+    </p>
+
+    <p>
+        You do not have to complete any boxes for Game 4. Instead you may be paid one more time for the number of boxes you completed in Game 1-Piece Rate. However, you now have to choose which payment scheme you want applied to the number of boxes you completed in Game 1-Piece Rate. You can either choose to be paid according to the piece rate, or according to the tournament. You will make this decision for each of the possible tournament prizes (i.e., $0.50, $0.75, $1, $1.25, $1.5, $1.75, $2, $2.25, $2.50).
+    </p>
+
+    <p>If Game 4 is the one selected for payment, then one tournament prize will be randomly chosen. Each of these prizes has an equal chance of being chosen. Your earnings for this task are determined as follows:</p>
+    <ul>
+        <li>
+            If you chose the piece rate for that prize, you receive $0.50 per box you completed in Game 1-Piece Rate.
+        </li>
+        <li>
+            If you chose the tournament for that prize, your performance will be evaluated relative to the performance of the other three participants of your assigned group in Game-1 Piece Rate. If you completed more boxes than the other three group members did in Game 1-Piece Rate, then you receive the chosen prize per completed box. Otherwise, you receive no earnings for this game. In case of ties, then the ranking is determined randomly. You will not be informed of how you did in the tournament until all games have been completed.
+        </li>
+    </ul>
+
+    <p>The next computer screen will tell you how many boxes you completed in Game 1, and will ask you to choose whether you want the piece rate or the tournament applied to your performance for the prizes of $0.50, $0.75, $1, $1.25, $1.5, $1.75, $2, $2.25, $2.50.</p>
+
+    <br>
+
+    {% delayed_next %}
+
+{% endblock %}
