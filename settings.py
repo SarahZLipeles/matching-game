@@ -42,7 +42,10 @@ SESSION_CONFIGS = [
             # 'Tournament_Game',
             # 'Choice',
             # 'Choice_Game',
-            'Choice_II']
+            # 'Choice_II'
+            'Investment_Decision',
+            'Investment_Decision_Game'
+            ]
     ),
 ]
 
