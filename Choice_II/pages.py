@@ -13,7 +13,7 @@ class Selection(Page):
     def before_next_page(self):
         # user has 5 minutes to complete as many pages as possible
         self.participant.vars['game_4_switch'] = self.player.game_4_switch
-        self.participant.vars['expiry'] = time.time() + 60*3
+        self.participant.vars['expiry'] = time.time() + 90
     def vars_for_template(self):
         piece_rate_score = 0
         try: # try catch since apps are skipped in testing

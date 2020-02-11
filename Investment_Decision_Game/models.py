@@ -18,7 +18,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Piece_Rate_Game'
+    name_in_url = 'Investment_Decision_Game'
     players_per_group = None
     num_rounds = 50
 
