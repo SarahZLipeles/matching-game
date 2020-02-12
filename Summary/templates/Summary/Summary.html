@@ -1,12 +1,16 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% load custom_tags %}
 
 {% block title %}
-    Page title
+    Summary
 {% endblock %}
 
 {% block content %}
 
-    {% next_button %}
+    <p>
+    </p>
+
+    {% delayed_next wait=1000 %}
 
 {% endblock %}

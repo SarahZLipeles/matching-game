@@ -34,17 +34,19 @@ SESSION_CONFIGS = [
         name='Matching_Game',
         num_demo_participants=1,
         app_sequence=[
-            'Introduction',
-            'Introduction_Practice',
-            'Piece_Rate',
-            'Piece_Rate_Game',
-            'Tournament',
-            'Tournament_Game',
-            'Choice',
-            'Choice_Game',
-            'Choice_II',
-            'Investment_Decision',
-            'Investment_Decision_Game']
+            # 'Introduction',
+            # 'Introduction_Practice',
+            # 'Piece_Rate',
+            # 'Piece_Rate_Game',
+            # 'Tournament',
+            # 'Tournament_Game',
+            # 'Choice',
+            # 'Choice_Game',
+            # 'Choice_II',
+            # 'Investment_Decision',
+            # 'Investment_Decision_Game'
+            'Survey',
+            'Summary']
     ),
 ]
 
