@@ -5,6 +5,10 @@ import time
 
 
 class Instructions(Page):
+    def vars_for_template(self):
+        return {
+            "participant_vars": str(self.participant.vars)
+        }
     pass
 
 class Selection(Page):
@@ -14,6 +18,10 @@ class Selection(Page):
         # user has 5 minutes to complete as many pages as possible
         self.participant.vars['game_3_switch'] = self.player.game_3_switch
         self.participant.vars['expiry'] = time.time() + 90
+    def vars_for_template(self):
+        return {
+            "participant_vars": str(self.participant.vars)
+        }
 
 
 page_sequence = [Instructions, Selection]
