@@ -4,15 +4,26 @@ from .models import Constants
 
 
 class Intro(Page):
+    def vars_for_template(self):
+        return {
+            "participant_vars": str(self.participant.vars)
+        }
     pass
 
 class Instructions(Page):
+    def vars_for_template(self):
+        return {
+            "participant_vars": str(self.participant.vars)
+        }
     pass
 
 class Counting_Task(Page):
     form_model = 'player'
     form_fields = ['counting_box']
-    pass
+    def vars_for_template(self):
+        return {
+            "participant_vars": str(self.participant.vars)
+        }
 
 
 
