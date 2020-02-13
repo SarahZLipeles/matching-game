@@ -1,6 +1,7 @@
 
 {% block content %}
-<div id="next-section" style="display: none;">
+<!-- <div id="next-section" style="display: none;"> -->
+<div id="next-section">
 <p><b>Please click {{label}} when you are ready.</b></p>
 <div class="row">
     <div class="col-11"></div>
@@ -11,10 +12,10 @@
 
 {% block show_button_script %}
     <script type="text/javascript">$(() => {
-        const wait = {{wait_time}}
-        setTimeout(() => {
-            $('#next-section').show();
-        }, wait);
+        // const wait = {{wait_time}}
+        // setTimeout(() => {
+        //     $('#next-section').show();
+        // }, wait);
     });
     </script>
 {% endblock %}
