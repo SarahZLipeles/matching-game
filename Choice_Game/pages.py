@@ -21,11 +21,11 @@ class Game_3(Page):
             return upcoming_apps[0]
     def vars_for_template(self):
         value = random.choice(Constants.round_values)
-        peice_rate = float(value) < float(self.participant.vars['game_3_switch'])
+        piece_rate = float(value) < float(self.participant.vars['game_3_switch'])
         return {
             'score': self.player.get_score(),
             'round': self.player.round_number-1,
-            'peice_rate': peice_rate,
+            'piece_rate': piece_rate,
             'value': value,
             "participant_vars": str(self.participant.vars)
         }
