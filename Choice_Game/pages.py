@@ -10,21 +10,24 @@ class Game_3(Page):
     def time_remaining(self):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
+        self.participant.vars['game_3_score'] = self.player.get_score()
         return self.time_remaining() > 0
     def get_timeout_seconds(self):
         remaining_time = self.time_remaining()
         return remaining_time
     def app_after_this_page(self, upcoming_apps):
         if self.time_remaining() <= 0:
+            self.participant.vars['game_3_score'] = self.player.get_score()
             return upcoming_apps[0]
     def vars_for_template(self):
         value = random.choice(Constants.round_values)
-        peice_rate = float(value) < float(self.participant.vars['game_3_switch'])
+        piece_rate = float(value) < float(self.participant.vars['game_3_switch'])
         return {
             'score': self.player.get_score(),
             'round': self.player.round_number-1,
-            'peice_rate': peice_rate,
-            'value': value
+            'piece_rate': piece_rate,
+            'value': value,
+            "participant_vars": str(self.participant.vars)
         }
 
 

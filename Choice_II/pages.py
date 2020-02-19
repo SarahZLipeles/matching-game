@@ -5,7 +5,10 @@ import time
 
 
 class Instructions(Page):
-    pass
+    def vars_for_template(self):
+        return {
+            "participant_vars": str(self.participant.vars)
+        }
 
 class Selection(Page):
     form_model = 'player'
@@ -15,13 +18,14 @@ class Selection(Page):
         self.participant.vars['game_4_switch'] = self.player.game_4_switch
         self.participant.vars['expiry'] = time.time() + 90
     def vars_for_template(self):
-        piece_rate_score = 0
+        game_1_score = 0
         try: # try catch since apps are skipped in testing
-            piece_rate_score = int(self.participant.vars['piece_rate_score'])
+            game_1_score = int(self.participant.vars['game_1_score'])
         except:
             pass
         return {
-            'piece_rate_score': piece_rate_score
+            'game_1_score': game_1_score,
+            "participant_vars": str(self.participant.vars)
         }
 
 
