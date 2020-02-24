@@ -3,14 +3,28 @@
 {% load custom_tags %}
 
 {% block title %}
-    Summary
+    <center>Summary</center>
 {% endblock %}
 
 {% block content %}
 
-    <p>
-    </p>
+    <center>Thank you for your participation. Here is the summary of your earnings.</center>
+    <br>
+    <p>Randomly Chosen Game for Payment:   ___</p>
+    <p>Number of Boxes Completed:  ____</p>
+    <p>Payment Scheme for Game – __ : Piece Rate / Tournament</p>
+    <p>    Tournament Prize :   $___ [if tournament is chosen for payment]</p>
+    <p>    Tournament Result: You won the tournament / You lost the tournament [if tournament is chosen for payment]</p>
+    <p>Game Earnings:   $____ [earnings from the randomly chosen game]</p>
+    <p>Extra Earnings from Guesses : $___  [earnings from their two guesses]</p>
+    <p>Participation Payment:  $1</p>
+    <p>Survey Payment: $1</p>
 
+    <br>
+
+    <h5>Total Earnings: $ ___</h5>
+
+    <br>
     {% delayed_next wait=1000 %}
 
 {% endblock %}
