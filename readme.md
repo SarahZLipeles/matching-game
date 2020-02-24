@@ -1,3 +1,6 @@
+# Test Site
+[https://sex-pref-competition-admin.herokuapp.com/demo/](https://sex-pref-competition-admin.herokuapp.com/demo/)
+
 # Instructions to run locally
 
 ## Install oTree
