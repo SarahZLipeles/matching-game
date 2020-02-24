@@ -20,7 +20,7 @@ class Game_3(Page):
             self.participant.vars['game_3_score'] = self.player.get_score()
             return upcoming_apps[0]
     def vars_for_template(self):
-        value = random.choice(Constants.round_values)
+        value = self.participant.vars['game_3_payment']
         piece_rate = float(value) < float(self.participant.vars['game_3_switch'])
         return {
             'score': self.player.get_score(),
