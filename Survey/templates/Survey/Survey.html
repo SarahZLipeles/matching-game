@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Survey
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Thank you for your participation. Before we calculate your earnings, we kindly ask you to complete this survey. You will receive an additional $x for completing the survey.
+    </p>
+
+    {% delayed_next wait=1000 %}
+
+{% endblock %}

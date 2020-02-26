@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    <center>Summary</center>
+{% endblock %}
+
+{% block content %}
+
+    <center>Thank you for your participation. Here is the summary of your earnings.</center>
+    <br>
+    <p>Randomly Chosen Game for Payment:  Game - {{payment_game}}</p>
+    <p>Number of Boxes Completed:  {{score}}</p>
+    <p>Payment Scheme for Game – {{payment_game}} : {{scheme}}</p>
+    {% if scheme == "Tournament" %}
+    <p>    Tournament Prize :   ${{payment_value}}</p>
+    <p>    Tournament Result: {% if win %} You won the tournament {% else %} You lost the tournament {% endif %}</p>
+    {% endif %}
+    <p>Game Earnings:   ${{payment}}</p>
+    <p>Extra Earnings from Guesses : $___  [earnings from their two guesses]</p>
+    <p>Participation Payment:  $1</p>
+    <p>Survey Payment: $1</p>
+
+    <br>
+
+    <h5>Total Earnings: $ {{payout}}</h5>
+
+    <br>
+    {% delayed_next wait=1000 %}
+
+{% endblock %}
