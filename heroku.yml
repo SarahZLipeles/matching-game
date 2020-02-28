@@ -1,0 +1,4 @@
+# release:
+#   command:
+#     yes | otree resetdb
+#   image: worker

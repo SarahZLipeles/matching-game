@@ -32,10 +32,10 @@ ROOMS = []
 SESSION_CONFIGS = [
     dict(
         name='Matching_Game',
-        num_demo_participants=1,
+        num_demo_participants=4,
         app_sequence=[
-            # 'Introduction',
-            # 'Introduction_Practice',
+            'Introduction',
+            'Introduction_Practice',
             'Piece_Rate',
             'Piece_Rate_Game',
             'Tournament',
@@ -44,7 +44,9 @@ SESSION_CONFIGS = [
             'Choice_Game',
             'Choice_II',
             'Investment_Decision',
-            'Investment_Decision_Game']
+            'Investment_Decision_Game',
+            'Survey',
+            'Summary']
     ),
 ]
 
