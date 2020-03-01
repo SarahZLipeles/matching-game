@@ -3,7 +3,7 @@
 {% block content %}
 <input type="hidden" name="{{field_name}}"/>
 <div id="counting-box">
-<img src="{% static img_name %}" class="rounded mx-auto d-block">
+<img src="{% static img %}" class="rounded mx-auto d-block">
 <div class="row">
 <div class="col"></div>
 <div class="col">
@@ -75,23 +75,36 @@
 
 {% block show_button_script %}
     <script type="text/javascript">$(() => {
-        $("#submit-answer").click(function() {
-            const answer = parseInt($("#answer_input").val());
-            if (parseInt($("#answer_input").val()) === {{answer}}) {
-                $('[name="{{field_name}}"]').attr("value", "True")
+        const submit = function() {
+            const answer = parseInt($('#answer_input').val());
+            if (parseInt($('#answer_input').val()) === {{answer}}) {
+                $('[name="{{field_name}}"]').attr('value', 'True');
             } else {
-                $('[name="{{field_name}}"]').attr("value", "False")
+                $('[name="{{field_name}}"]').attr('value', 'False');
             }
             if (answer >= 0 && answer <= 49) {
                 $('#submit-modal').modal('show');
-                $("#player-answer").text(answer);
-                $("#correct-answer").text({{answer}});
+                $('#player-answer').text(answer);
+                $('#correct-answer').text({{answer}});
                 $('#answer_input').prop('disabled', true);
                 $('#submit-answer').prop('disabled', true);
             } else {
                 $('#invalid-selection-modal').modal('show');
             }
+        }
+
+        $(document).keydown(function (event) {
+            if ( event.which == 13 ) {
+                event.preventDefault();
+            }
         });
+
+        $('#submit-answer').click(submit);
+        if ("{{next_page}}" == "True") {
+            $('.modal').on('hidden.bs.modal', function () {
+                $('.next-button').click();
+            });
+        }
 
         console.log({{answer}});
     });

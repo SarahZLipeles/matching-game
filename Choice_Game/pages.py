@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 import time, random
+from custom_templates.custom_funcs import get_box
 
 
 class Game_3(Page):
@@ -22,7 +23,10 @@ class Game_3(Page):
     def vars_for_template(self):
         value = random.choice(Constants.round_values)
         piece_rate = float(value) < float(self.participant.vars['game_3_switch'])
+        img, num_zeros = get_box()
         return {
+            "img": img,
+            "answer": num_zeros,
             'score': self.player.get_score(),
             'round': self.player.round_number-1,
             'piece_rate': piece_rate,
