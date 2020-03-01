@@ -1,13 +1,13 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
-import time
+import time, random
 
 
 class Instructions(Page):
     def vars_for_template(self):
         return {
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': str(self.participant.vars)
         }
     pass
 
@@ -17,11 +17,22 @@ class Selection(Page):
     def before_next_page(self):
         # user has 5 minutes to complete as many pages as possible
         self.participant.vars['game_3_switch'] = self.player.game_3_switch
+        self.participant.vars['game_3_payment'] = random.choice(Constants.round_values)
+        self.participant.vars['game_3_piece_rate'] = float(self.participant.vars['game_3_payment']) < float(self.participant.vars['game_3_switch'])
+    def vars_for_template(self):
+        return {
+            'participant_vars': str(self.participant.vars)
+        }
+
+class Selection_Results(Page):
+    def before_next_page(self):
         self.participant.vars['expiry'] = time.time() + 90
     def vars_for_template(self):
         return {
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': str(self.participant.vars),
+            'value': self.participant.vars['game_3_payment'],
+            'piece_rate': self.participant.vars['game_3_piece_rate']
         }
 
 
-page_sequence = [Instructions, Selection]
+page_sequence = [Instructions, Selection, Selection_Results]
