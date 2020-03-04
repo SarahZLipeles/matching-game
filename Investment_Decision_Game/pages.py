@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 import time
+from custom_templates.custom_funcs import get_box
 
 class Game_5(Page):
     form_model = 'player'
@@ -19,7 +20,10 @@ class Game_5(Page):
             self.participant.vars['game_3_score'] = self.player.get_score()
             return upcoming_apps[0]
     def vars_for_template(self):
+        img, num_zeros = get_box()
         return {
+            "img": img,
+            "answer": num_zeros,
             "score": self.player.get_score(),
             "round": self.player.round_number-1,
             "participant_vars": str(self.participant.vars)

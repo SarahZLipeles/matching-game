@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 import time
+from custom_templates.custom_funcs import get_box
 
 
 class Instructions(Page):
@@ -12,7 +13,10 @@ class Instructions(Page):
         # user has 5 minutes to complete as many pages as possible
         self.participant.vars['expiry'] = time.time() + 90
     def vars_for_template(self):
+        img, num_zeros = get_box()
         return {
+            "img": img,
+            "answer": num_zeros,
             "participant_vars": str(self.participant.vars)
         }
 
