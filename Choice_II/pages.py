@@ -16,7 +16,7 @@ class Selection(Page):
     form_model = 'player'
     form_fields = ['attention_check', 'game_4_switch']
     def before_next_page(self):
-        # user has 5 minutes to complete as many pages as possible
+        # user has 90 seconds to complete as many pages as possible
         self.participant.vars['game_4_switch'] = self.player.game_4_switch
         self.participant.vars['game_4_value'] = random.choice(payment_values)
         self.participant.vars['expiry'] = time.time() + 90
