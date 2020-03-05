@@ -8,7 +8,7 @@
 
 {% block content %}
     <p>
-        In Game-5, you are endowed with 100 points and asked to choose the portion of this amount (between 0 and 100 points, inclusive) that you wish to invest in a tournament for each potential tournament prize. The rest of the 100 points will be invested in a <strong>piece rate payment</strong> scheme.
+        In Game-5, you are endowed with 50 points and asked to choose the portion of this amount (between 0 and 50 points, inclusive) that you wish to invest in a tournament for each potential tournament prize. The rest of the 50 points will be invested in a <strong>piece rate payment</strong> scheme.
     </p>
 
     <p>
@@ -17,17 +17,17 @@
 
     <ol type="A">
         <li>The piece rate scheme pays 1 cent per point for each completed box</li>
-        <li>The tournament scheme pays 4 cents per point for each completed box if you complete more boxes than the other three group members.  Otherwise, you will be paid zero for this part of the experiment</li>
+        <li>The tournament scheme pays 5 cents per point for each completed box if you complete more boxes than the other three group members.  Otherwise, you will be paid zero for this part of the experiment</li>
     </ol>
 
     <p>
-        We now ask you to choose how many of the 100 points you would like to invest in option A (the piece rate) and how many in option B (the tournament). Please remember that the two numbers should add up to 100 points.
+        We now ask you to choose how many of the 50 points you would like to invest in option A (the piece rate) and how many in option B (the tournament). Please remember that the two numbers should add up to 50 points.
     </p>
 
     <br>
 
     <p>
-        I would like to invest <input id="Points_A_Box" name="Points_A" type="number" min="0" max="100" class="form-control points-box text-center"></input> points in Option A (the piece rate) and <input id="Points_B_Box" name="Points_B" type="number" class="form-control points-box text-center"></input> points in Option B (the tournament).
+        I would like to invest <input id="Points_A_Box" name="Points_A" type="number" min="0" max="50" class="form-control points-box text-center"></input> points in Option A (the piece rate) and <input id="Points_B_Box" name="Points_B" type="number" class="form-control points-box text-center"></input> points in Option B (the tournament).
     </p>
 
     <style>
@@ -39,16 +39,16 @@
     <script type="text/javascript">$(() => {
         $("#Points_A_Box").change(function(){
             let A_val = $("#Points_A_Box").val();
-            if (A_val > 100) A_val = 100;
+            if (A_val > 50) A_val = 50;
             if (A_val < 0) A_val = 0;
-            $("#Points_B_Box").val(100-A_val);
+            $("#Points_B_Box").val(50-A_val);
             $("#Points_A_Box").val(A_val);
         });
         $("#Points_B_Box").change(function(){
             let B_val = $("#Points_B_Box").val();
-            if (B_val > 100) B_val = 100;
+            if (B_val > 50) B_val = 50;
             if (B_val < 0) B_val = 0;
-            $("#Points_A_Box").val(100-B_val);
+            $("#Points_A_Box").val(50-B_val);
             $("#Points_B_Box").val(B_val);
         });
     });

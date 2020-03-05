@@ -10,7 +10,7 @@ class Instructions(Page):
     form_fields = ['counting_box']
 
     def before_next_page(self):
-        # user has 5 minutes to complete as many pages as possible
+        # user has 90 seconds to complete as many pages as possible
         self.participant.vars['expiry'] = time.time() + 90
     def vars_for_template(self):
         img, num_zeros = get_box()
