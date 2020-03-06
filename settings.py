@@ -45,6 +45,7 @@ SESSION_CONFIGS = [
             'Choice_II',
             'Investment_Decision',
             'Investment_Decision_Game',
+            'Performance_Guesses',
             'Survey',
             'Summary']
     ),
