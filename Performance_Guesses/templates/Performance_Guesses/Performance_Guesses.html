@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Submit Your Guesses
+{% endblock %}
+
+{% block content %}
+    <p>Here, we ask you to state your beliefs regarding your performance in Game-1 Piece Rate and Game-2 Tournament.</p>
+
+    <ol>
+        <li>Thinking about your performance and those of your group members in Game-1 Piece Rate, do you think that you were the best performer, second best performer, third best performer or the fourth best (i.e. worst) performer in your group? If your answer is correct, you will be paid an extra $1.
+
+            <p>In Game-1 Piece Rate, I think I was</p>
+            {{ form.belief_piece_rate.errors }}
+            {{ form.belief_piece_rate }}
+        </li>
+        <br>
+        <li>Thinking about your performance and those of your group members in Game-2 Tournament, do you think that you were the best performer, second best performer, third best performer or the fourth best (i.e. worst) performer in your group? If your answer is correct, you will be paid an extra $1.
+
+            <p>In Game-2 Tournament, I think I was</p>
+            {{ form.belief_tournament.errors }}
+            {{ form.belief_tournament }}
+        </li>
+    </ol>
+
+    {% delayed_next wait=1000 %}
+
+{% endblock %}
