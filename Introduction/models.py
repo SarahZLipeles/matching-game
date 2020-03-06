@@ -32,5 +32,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    counting_box = models.BooleanField(blank=True)
     pass
