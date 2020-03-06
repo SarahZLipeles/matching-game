@@ -100,7 +100,7 @@
 
         $('#submit-answer').click(submit);
         if ("{{next_page}}" == "True") {
-            $('.modal').on('hidden.bs.modal', function () {
+            $('#submit-modal').on('hidden.bs.modal', function () {
                 $('.next-button').click();
             });
         }
