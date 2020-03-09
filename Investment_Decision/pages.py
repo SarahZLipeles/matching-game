@@ -8,8 +8,8 @@ class Instructions(Page):
     form_model = 'player'
     form_fields = ['Points_A', 'Points_B']
     def error_message(self, values):
-        if values['Points_A'] + values['Points_B']  != 100:
-            return 'The points must add up to 100'
+        if values['Points_A'] + values['Points_B']  !=  50:
+            return 'The points must add up to   50'
         else:
             self.participant.vars['game_5_values'] = str(values)
     def before_next_page(self):
