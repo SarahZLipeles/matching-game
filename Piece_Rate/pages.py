@@ -15,7 +15,7 @@ class Instructions(Page):
     def vars_for_template(self):
         img, num_zeros = get_box()
         return {
-            "img": img,
+            "img": "boxes/" + img,
             "answer": num_zeros,
             "participant_vars": str(self.participant.vars)
         }
