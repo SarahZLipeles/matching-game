@@ -35,6 +35,8 @@ class Summary(Page):
             payment = 0.01 * json.loads(self.participant.vars['game_5_values'].replace("'",'"'))['Points_A'] * score
         place_piece_rate = 1
         place_tournament = 1
+        game_1_group_scores = []
+        game_2_group_scores = []
         for player in self.player.get_others_in_group():
                 player_score_tournament = 0
                 player_score_piece_rate = 0
@@ -48,6 +50,8 @@ class Summary(Page):
                     place_tournament += 1
                 if player_score_piece_rate > self.participant.vars['game_1_score']:
                     place_piece_rate += 1
+                game_1_group_scores.append(player_score_piece_rate)
+                game_2_group_scores.append(player_score_tournament)
 
         if scheme == 'Tournament':
             for player in self.player.get_others_in_group():
@@ -63,9 +67,19 @@ class Summary(Page):
                     win += 1
             if win:
                 win = random.random() < (1/win) # Randomly select on tie
-        guess_payement = (place_piece_rate == player.participant.vars['belief_piece_rate']) + (place_tournament == player.participant.vars['belief_tournament'])
+        guess_payement = (place_piece_rate == self.participant.vars['belief_piece_rate']) + (place_tournament == self.participant.vars['belief_tournament'])
         payment += payment_value * score * win
         payout = payment + 2 + guess_payement
+        self.player.payment_game = payment_game
+        self.player.scheme_tournament = scheme == 'Tournament'
+        self.player.score = score
+        self.player.win = win
+        self.player.payout = payout
+        self.player.game_1_group_scores = str(game_1_group_scores)
+        self.player.game_2_group_scores = str(game_2_group_scores)
+        self.player.place_piece_rate = place_piece_rate
+        self.player.place_tournament = place_tournament
+        self.player.participant_vars = str(self.participant.vars)
         return {
             'payment_game': payment_game,
             'scheme': scheme,
