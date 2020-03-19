@@ -13,7 +13,7 @@
     </p>
 
     <p>
-        Please select which payment scheme you prefer to apply to your performance in Game-4 for each possible tournament prize. Each prize has an equal chance of being chosen.
+        Please select which payment scheme you prefer to apply to your performance in Game-4 for each possible tournament prize. Each prize has an equal chance of being chosen. We ask you to indicate your choices by selecting the lowest tournament prize that you are willing to accept. Once you do this, the remaining buttons will be filled in for you.
     </p>
     <div class="container" style="width:page"></div>
     <div class="row">
@@ -53,6 +53,26 @@
 
     {% delayed_next %}
 
+
+<div class="modal fade" id="invalid-selection-modal" tabindex="-1" role="dialog"
+    aria-labelledby="invalid-selection-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="invalid-selection-modal-label">Invalid Selection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Please make your decision in order to proceed
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
@@ -81,6 +101,12 @@
                     $(this).prop('checked', after == parseInt(currSide));
                 }
             });
+        });
+        $('#delayed-next-button').click(function(event) {
+            if ($('[name="game_4_switch"]').attr('value') === 'False') {
+                event.preventDefault();
+                $('#invalid-selection-modal').modal('show');
+            }
         });
     });
     </script>

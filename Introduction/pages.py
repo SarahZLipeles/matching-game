@@ -19,12 +19,10 @@ class Instructions(Page):
     pass
 
 class Counting_Task(Page):
-    form_model = 'player'
-    form_fields = ['counting_box']
     def vars_for_template(self):
         img, num_zeros = get_box()
         return {
-            "img": img,
+            "img": "boxes/" + img,
             "answer": num_zeros,
             "participant_vars": str(self.participant.vars)
         }

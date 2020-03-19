@@ -32,4 +32,13 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    payment_game = models.IntegerField()
+    scheme_tournament = models.BooleanField()
+    score = models.IntegerField()
+    win = models.BooleanField()
+    payout = models.CurrencyField()
+    participant_vars = models.LongStringField()
+    game_1_group_scores = models.StringField()
+    game_2_group_scores = models.StringField()
+    place_piece_rate = models.IntegerField()
+    place_tournament = models.IntegerField()
