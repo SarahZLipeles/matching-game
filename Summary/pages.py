@@ -33,25 +33,25 @@ class Summary(Page):
             scheme = 'Tournament'
             payment_value = 0.04 * json.loads(self.participant.vars['game_5_values'].replace("'",'"'))['Points_B']
             payment = 0.01 * json.loads(self.participant.vars['game_5_values'].replace("'",'"'))['Points_A'] * score
-        place_piece_rate = 1
-        place_tournament = 1
+        place_game_1 = 1
+        place_game_2 = 1
         game_1_group_scores = []
         game_2_group_scores = []
         for player in self.player.get_others_in_group():
-                player_score_tournament = 0
-                player_score_piece_rate = 0
+                player_score_game_2 = 0
+                player_score_game_1 = 0
                 try:
-                    player_score_tournament = player.participant.vars['game_2_score']
-                    player_score_piece_rate = player.participant.vars['game_1_score']
+                    player_score_game_2 = player.participant.vars['game_2_score']
+                    player_score_game_1 = player.participant.vars['game_1_score']
                 except:
-                    player_score_tournament = random.randint(2,8)
-                    player_score_piece_rate = random.randint(2,8)
-                if player_score_tournament > self.participant.vars['game_2_score']:
-                    place_tournament += 1
-                if player_score_piece_rate > self.participant.vars['game_1_score']:
-                    place_piece_rate += 1
-                game_1_group_scores.append(player_score_piece_rate)
-                game_2_group_scores.append(player_score_tournament)
+                    player_score_game_2 = random.randint(2,8)
+                    player_score_game_1 = random.randint(2,8)
+                if player_score_game_2 > self.participant.vars['game_2_score']:
+                    place_game_2 += 1
+                if player_score_game_1 > self.participant.vars['game_1_score']:
+                    place_game_1 += 1
+                game_1_group_scores.append(player_score_game_1)
+                game_2_group_scores.append(player_score_game_2)
 
         if scheme == 'Tournament':
             for player in self.player.get_others_in_group():
@@ -67,7 +67,7 @@ class Summary(Page):
                     win += 1
             if win:
                 win = random.random() < (1/win) # Randomly select on tie
-        guess_payment = (place_piece_rate == self.participant.vars['belief_piece_rate']) + (place_tournament == self.participant.vars['belief_tournament'])
+        guess_payment = (place_game_1 == self.participant.vars['belief_game_1']) + (place_game_2 == self.participant.vars['belief_game_2'])
         payment += payment_value * score * win
         payout = payment + 2 + guess_payment
         self.player.payment_game = payment_game
@@ -77,8 +77,8 @@ class Summary(Page):
         self.player.payout = payout
         self.player.game_1_group_scores = str(game_1_group_scores)
         self.player.game_2_group_scores = str(game_2_group_scores)
-        self.player.place_piece_rate = place_piece_rate
-        self.player.place_tournament = place_tournament
+        self.player.place_game_1 = place_game_1
+        self.player.place_game_2 = place_game_2
         self.player.participant_vars = str(self.participant.vars)
         return {
             'payment_game': payment_game,

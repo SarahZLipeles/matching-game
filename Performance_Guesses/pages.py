@@ -5,10 +5,10 @@ from .models import Constants
 
 class Performance_Guesses(Page):
     form_model = 'player'
-    form_fields = ['belief_piece_rate', 'belief_tournament']
+    form_fields = ['belief_game_1', 'belief_game_2']
     def before_next_page(self):
-        self.participant.vars['belief_piece_rate'] = self.player.belief_piece_rate
-        self.participant.vars['belief_tournament'] = self.player.belief_tournament
+        self.participant.vars['belief_game_1'] = self.player.belief_game_1
+        self.participant.vars['belief_game_2'] = self.player.belief_game_2
     def vars_for_template(self):
         return {
             "participant_vars": str(self.participant.vars)
