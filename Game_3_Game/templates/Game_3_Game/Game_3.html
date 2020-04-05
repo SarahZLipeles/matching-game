@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 3 – Piece Rate
+{% endblock %}
+
+{% block content %}
+<p>
+    <b>Number of Correct Submissions: </b><b id="scoreboard">{{ score }}</b>
+</p>
+
+<p>
+    Your Payment Scheme: ${{ value }} {% if game_1 %} <strong>piece rate payment</strong> {% else %} <strong>Tournament Payment</strong> {% endif %}
+</p>
+
+{% counting_box "counting_box" img answer %}
+
+<br>
+<p>Determine the number of zeros in the box. You will receive some amount from {0.5, … 3.5} per box, chosen randomly, if you complete more boxes than your group members for Game 2. Otherwise you will receive nothing.</p>
+
+{% endblock %}

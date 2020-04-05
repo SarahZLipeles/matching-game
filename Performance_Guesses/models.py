@@ -32,7 +32,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    belief_piece_rate = models.IntegerField(widget=widgets.RadioSelect,
+    belief_game_1 = models.IntegerField(widget=widgets.RadioSelect,
         choices=[
             [1, 'The best performer in my group.'],
             [2, 'The second best performer in my group.'],
@@ -40,7 +40,7 @@ class Player(BasePlayer):
             [4, 'The fourth best (the worst) performer in my group.']
         ]
     )
-    belief_tournament = models.IntegerField(widget=widgets.RadioSelect,
+    belief_game_2 = models.IntegerField(widget=widgets.RadioSelect,
         choices=[
             [1, 'The best performer in my group.'],
             [2, 'The second best performer in my group.'],
