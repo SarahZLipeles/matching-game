@@ -4,9 +4,8 @@ USER root
 
 # Install custom tools, runtime, etc.
 
-RUN apt-get update\
-    && apt-get install -y apt-utils\
-    && apt-get install -y zsh fonts-powerline
+RUN apt-get update && apt-get install -y\ 
+    apt-utils zsh fonts-powerline
 
 USER gitpod
 
