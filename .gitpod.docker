@@ -8,6 +8,8 @@ RUN ["apt-get", "update"]
 
 RUN ["apt-get", "install", "-y", "zsh", "fonts-powerline"]
 
+RUN ["pyenv", "install", "3.7.3"]
+
 USER gitpod
 
   # set the zsh theme 
