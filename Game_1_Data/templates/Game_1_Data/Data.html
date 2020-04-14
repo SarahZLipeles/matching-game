@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 1 Data
+{% endblock %}
+
+{% block content %}
+    
+    {% for key, value in data.items %}
+    <div>
+        {{ key }}: {{ value }}
+    </div>
+    <br>
+    {% endfor %}
+
+    <br>
+    {% next_button %}
+
+{% endblock %}
