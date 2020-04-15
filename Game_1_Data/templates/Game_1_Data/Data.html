@@ -7,11 +7,7 @@
 {% endblock %}
 
 {% block content %}
-    <pre>
-    {% for key, value in data.items %}
-        {{ key }}: {{ value }}
-    {% endfor %}
-    </pre>
+    {% data_display data %}
     <br>
     {% next_button %}
 
