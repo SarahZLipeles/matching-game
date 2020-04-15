@@ -27,26 +27,26 @@
         <div class="row">
             <div class="col">If the tournament prize is {{i}}, which scheme do you choose:</div>
             <div class="col-2 form-check">
-                <label class="col">$0.50</label>
+                <label class="rado-inline">$0.50</label>
                 <input name="__{{i}}" id="switch_point_{{i}}_0" type="radio" class="form-check-input col switch_point">
             </div>
             <div class="col-4 form-check">
                 <input name="__{{i}}" id="switch_point_{{i}}_1" type="radio" class="form-check-input col switch_point">
-                <label class="col">${{i}}</label>
+                <label class="rado-inline">${{i}}</label>
             </div>
         </div>
     {% endfor %}
     <div class="row">
-        <div class="col">(Attention check) Please select Tournament for this row:</div>
+        <div class="col-6">(Attention check) Please select Tournament for this row:</div>
         <input type="hidden" name="attention_check" value="False"/>
-        <div class="col-1"></div>
-        <div class="col-2 form-check">
-            <label class="col"></label>
+        {% comment %} <div class="col-1"></div> {% endcomment %}
+        <div class="col-3 form-check">
+            <label class="radio-inline"></label>
             <input name="attention_check_button" id="attention_check_False" type="radio" class="form-check-input col attention_check_radio">
         </div>
-        <div class="col-4 form-check">
+        <div class="col-2 form-check">
             <input name="attention_check_button" id="attention_check_True" type="radio" class="form-check-input col attention_check_radio">
-            <label class="col"></label>
+            <label class="radio-inline"></label>
         </div>
     </div>
     <br>
