@@ -58,7 +58,7 @@
             <div class="modal-body">
                 <p>You answered: <b id="player-answer"></b></p>
 
-                <p>The correct answer was: <b id="correct-answer"></b></p>
+                <p>This was <b id="correct-answer"></b></p>
             </div>
             <div class="modal-footer">
                 {% if next_page %}
@@ -73,18 +73,20 @@
 {% endblock %}
 
 {% block show_button_script %}
+    <script src="{% static "/global/_md5.js" %}" type="text/javascript"></script>
     <script type="text/javascript">$(() => {
         const submit = function() {
             const answer = parseInt($('#answer_input').val());
-            if (parseInt($('#answer_input').val()) === {{answer}}) {
+            if (md5($('#answer_input').val()) === "{{answer}}") {
                 $('[name="{{field_name}}"]').attr('value', 'True');
+                $('#correct-answer').text("correct");
             } else {
                 $('[name="{{field_name}}"]').attr('value', 'False');
+                $('#correct-answer').text("incorrect");
             }
             if (answer >= 0 && answer <= 49) {
                 $('#submit-modal').modal('show');
                 $('#player-answer').text(answer);
-                $('#correct-answer').text({{answer}});
                 $('#answer_input').prop('disabled', true);
                 $('#submit-answer').prop('disabled', true);
             } else {

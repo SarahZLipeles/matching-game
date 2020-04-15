@@ -1,6 +1,7 @@
 from django import template
 import os, json
 from custom_templates.custom_funcs import get_box
+import hashlib
 register = template.Library()
 
 @register.inclusion_tag('_data_display.html')
@@ -24,7 +25,7 @@ def counting_box(field_name='test', img=None, num_zeros=None):
 
     return {
         'img': os.path.join('boxes', img),
-        'answer': num_zeros,
+        'answer': hashlib.md5((str(num_zeros)).encode("utf-8")).hexdigest(),
         'field_name': field_name,
         'next_page': next_page
     }
