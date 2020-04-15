@@ -18,10 +18,10 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Game_1_Data'
+    name_in_url = 'Game_2_Data'
     players_per_group = 4
     num_rounds = 1
-    game_name = "game_1"
+    game_name = "game_2"
 
 
 class Subsession(BaseSubsession):

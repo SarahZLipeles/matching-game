@@ -24,12 +24,17 @@ class Data(Page):
             participants)
         potential_payouts = {}
         for i in self.session.config['round_values']:
-            potential_payouts[i] = float(i) * self.player.score
+            potential_payouts[i] = float(i) * self.player.score * (
+                self.player.place == 1 and
+                (self.player.won_tiebreaker is None or 
+                self.player.won_tiebreaker)
+            )
         self.player.potential_payouts = json.dumps(potential_payouts)
         data = {
             'score': self.player.score,
             'group_scores': self.player.group_scores,
             'place': self.player.place,
+            'won_tiebreaker': self.player.won_tiebreaker,
             'potential_payouts': self.player.potential_payouts
         }
         # headers = ['score', 'group_scores', 'place', 'tiebreaker']

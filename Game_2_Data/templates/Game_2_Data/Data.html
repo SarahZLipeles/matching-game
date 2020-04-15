@@ -3,15 +3,17 @@
 {% load custom_tags %}
 
 {% block title %}
-    Game 1 Data
+    Game 2 Data
 {% endblock %}
 
 {% block content %}
+    
     <pre>
     {% for key, value in data.items %}
         {{ key }}: {{ value }}
     {% endfor %}
     </pre>
+
     <br>
     {% next_button %}
 

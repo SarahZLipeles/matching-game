@@ -23,6 +23,8 @@ def get_game_group_scores(game_name, player, participants):
     group = random.choices(participants, k=3)
     group_scores = list(map(lambda p: p[game_score_key], group))
     group_scores.append(get_game_score(game_name, player))
+    group_scores.sort()
+    group_scores.reverse()
     player.participant.vars[game_group_score_key] = group_scores
     return group_scores
 
@@ -36,6 +38,8 @@ def get_tiebreaker(game_name, player, participants):
     score = get_game_score(game_name, player)
     group_scores = get_game_group_scores(game_name, player, participants)
     num_ties = group_scores.count(score)
+    if num_ties == 1:
+        return None
     tiebreaker = random.randint(1,num_ties) == 1
     player.participant.vars[tiebreaker_key] = tiebreaker
     return tiebreaker
@@ -52,7 +56,6 @@ def get_game_stats(game_name, player, participants):
 def get_game_place(game_name, player, participants):
     score = get_game_score(game_name, player)
     group_scores = get_game_group_scores(game_name, player, participants)
-    group_scores.sort()
     return group_scores.index(score) + 1
 
 def set_score(game_name, player, score):
