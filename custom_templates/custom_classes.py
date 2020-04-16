@@ -44,7 +44,7 @@ class DataPlayer(BasePlayer):
     def calc_potential_payouts(self, round_values, lam=lambda a:a):
         potential_payouts = {}
         for i in round_values:
-            potential_payouts[i] = lam(float(i)) * self.score
+            potential_payouts[i] = round(lam(float(i)) * self.score, 2)
         self.potential_payouts = json.dumps(potential_payouts)
         return potential_payouts
     
