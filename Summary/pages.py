@@ -67,7 +67,9 @@ class Summary(Page):
                     win += 1
             if win:
                 win = random.random() < (1/win) # Randomly select on tie
-        guess_payment = (place_game_1 == self.participant.vars['belief_game_1']) + (place_game_2 == self.participant.vars['belief_game_2'])
+
+        parvars = self.participant.vars
+        guess_payment = (parvars['game_1_score'] == parvars['belief_game_1']) + (parvars['game_2_score'] == parvars['belief_game_2'])
         payment += payment_value * score * win
         payout = payment + 2 + guess_payment
         self.player.payment_game = payment_game
@@ -80,6 +82,8 @@ class Summary(Page):
         self.player.place_game_1 = place_game_1
         self.player.place_game_2 = place_game_2
         self.player.participant_vars = str(self.participant.vars)
+
+
         return {
             'payment_game': payment_game,
             'scheme': scheme,

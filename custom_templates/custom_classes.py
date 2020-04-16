@@ -19,7 +19,7 @@ class DataPlayer(BasePlayer):
     won_tiebreaker = models.BooleanField()
     potential_payouts = models.LongStringField()
     payout = models.FloatField()
-
+    scheme = models.StringField(max_length=10)
     class Meta:
         abstract = True
     

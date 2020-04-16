@@ -29,6 +29,8 @@ class Data(Page):
             self.participant.vars['game_2_value'] = random.choice(self.session.config['round_values'])
         self.player.value_chosen = float(self.participant.vars['game_2_value'])
         self.player.payout = potential_payouts[self.participant.vars['game_2_value']]
+        self.player.scheme = 'Tournament'
+        self.participant.vars[game_name + '_scheme'] = self.player.scheme
         return {
             'data' : self.player.data()
             }

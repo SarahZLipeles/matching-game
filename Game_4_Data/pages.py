@@ -40,7 +40,11 @@ class Data(Page):
 
         self.player.value_chosen = float(self.participant.vars['game_4_value'])
         self.player.payout = potential_payouts[self.participant.vars['game_4_value']]
-
+        if self.player.value_chosen < self.player.switch:
+            self.player.scheme = 'Piece Rate'
+        else:
+            self.player.scheme = 'Tournament'
+        self.participant.vars[game_name + '_scheme'] = self.player.scheme
         return {
             'data' : self.player.data()
             }
