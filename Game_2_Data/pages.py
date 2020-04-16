@@ -25,7 +25,8 @@ class Data(Page):
                     self.player.won_tiebreaker))
         )
 
-        self.participant.vars['game_2_value'] = random.choice(self.session.config['round_values'])
+        if 'game_2_value' not in self.participant.vars:
+            self.participant.vars['game_2_value'] = random.choice(self.session.config['round_values'])
         self.player.value_chosen = float(self.participant.vars['game_2_value'])
         self.player.payout = potential_payouts[self.participant.vars['game_2_value']]
         return {

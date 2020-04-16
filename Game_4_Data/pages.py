@@ -5,20 +5,22 @@ from custom_templates.custom_funcs import (
     get_game_stats
 )
 import json
+import random
 
 class Data(Page):
     def is_displayed(self):
         return self.session.config['data_pages_enabled']
     def vars_for_template(self):
         game_name = Constants.game_name
-        
-        self.player.switch = float(self.participant.vars['game_3_switch'])
+        if 'game_4_value' not in self.participant.vars:
+            self.participant.vars['game_4_value'] = random.choice(self.session.config['round_values'])
+        self.player.switch = float(self.participant.vars['game_4_switch'])
         
         participants = self.session.config["sample_participants"]
         # restrict to specified number of sample participants
         participants = participants[:self.session.config["num_sample_participants"] + 1]
 
-        self.player.calc_stats(game_name, participants)
+        self.player.calc_stats(game_name, participants, 'game_1')
         
         def win_condition(i):
             if float(i) >= float(self.player.switch):
@@ -36,8 +38,8 @@ class Data(Page):
             win_condition
         )
 
-        self.player.value_chosen = float(self.participant.vars['game_3_value'])
-        self.player.payout = potential_payouts[self.participant.vars['game_3_value']]
+        self.player.value_chosen = float(self.participant.vars['game_4_value'])
+        self.player.payout = potential_payouts[self.participant.vars['game_4_value']]
 
         return {
             'data' : self.player.data()

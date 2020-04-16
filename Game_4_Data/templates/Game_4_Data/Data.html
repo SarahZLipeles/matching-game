@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 4 Data
+{% endblock %}
+
+{% block content %}
+    
+    {% data_display data %}
+    <br>
+    {% next_button %}
+
+{% endblock %}

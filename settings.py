@@ -41,6 +41,7 @@ SESSION_CONFIGS = [
             'Game_3_Game',
             'Game_3_Data',
             'Game_4',
+            'Game_4_Data',
             'Game_5',
             'Game_5_Game',
             'Performance_Guesses',
