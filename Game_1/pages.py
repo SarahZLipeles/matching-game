@@ -11,7 +11,7 @@ class Instructions(Page):
 
     def before_next_page(self):
         # user has 90 seconds to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 90
+        self.participant.vars['expiry'] = time.time() + self.session.config["seconds_for_counting_task"]
     def vars_for_template(self):
         img, num_zeros = get_box()
         return {

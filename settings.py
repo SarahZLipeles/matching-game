@@ -13,7 +13,8 @@ SESSION_CONFIG_DEFAULTS = dict(
     data_pages_enabled=True,
     sample_participants=sample_participants,
     num_sample_participants=10,
-    round_values = ["0.50","0.75","1.00","1.25","1.50","1.75","2.00","2.25","2.50"]
+    round_values = ["0.50","0.75","1.00","1.25","1.50","1.75","2.00","2.25","2.50"],
+    seconds_for_counting_task=90
 )
 
 
@@ -26,10 +27,10 @@ ROOMS = []
 SESSION_CONFIGS = [
     dict(
         name='Matching_Game',
-        num_demo_participants=4,
+        num_demo_participants=1,
         app_sequence=[
-            'Introduction',
-            'Introduction_Practice',
+            # 'Introduction',
+            # 'Introduction_Practice',
             'Game_1',
             'Game_1_Game',
             'Game_1_Data',
@@ -38,6 +39,7 @@ SESSION_CONFIGS = [
             'Game_2_Data',
             'Game_3',
             'Game_3_Game',
+            'Game_3_Data',
             'Game_4',
             'Game_5',
             'Game_5_Game',

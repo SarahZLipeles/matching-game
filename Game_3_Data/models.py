@@ -18,10 +18,10 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'Game_2_Data'
+    name_in_url = 'Game_3_Data'
     players_per_group = None
     num_rounds = 1
-    game_name = "game_2"
+    game_name = "game_3"
 
 
 class Subsession(BaseSubsession):
@@ -33,5 +33,6 @@ class Group(BaseGroup):
 
 
 class Player(DataPlayer):
+    switch = models.FloatField()
     value_chosen = models.FloatField()
     pass
