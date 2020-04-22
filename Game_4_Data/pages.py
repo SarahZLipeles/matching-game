@@ -29,8 +29,6 @@ class Data(Page):
                     ((self.player.won_tiebreaker is None) or 
                     self.player.won_tiebreaker)
                 )
-            else:
-                i *= 0.5
             return i
 
         potential_payouts = self.player.calc_potential_payouts(
