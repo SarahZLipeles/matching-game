@@ -15,42 +15,60 @@
     <p>
         Please select which payment scheme you prefer to apply to your performance in Game-4 for each possible tournament prize. Each prize has an equal chance of being chosen. We ask you to indicate your choices by selecting the lowest tournament prize that you are willing to accept. Once you do this, the remaining buttons will be filled in for you.
     </p>
-    <div class="container" style="width:page"></div>
-    <div class="row">
-        <div class="col"></div>
-        <h5 class="col-2">Piece Rate</h5>
-        <h5 class="col-4">Tournament</h5>
-    </div>
-    <hr/>
-    <input type="hidden" name="game_4_switch" value="False"/>
-    {% for i in Constants.round_values %}
-        <div class="row">
-            <div class="col">If the tournament prize is {{i}}, which scheme do you choose:</div>
-            <div class="col-2 form-check">
-                <label class="rado-inline">$0.50</label>
-                <input name="__{{i}}" id="switch_point_{{i}}_0" type="radio" class="form-check-input col switch_point">
-            </div>
-            <div class="col-4 form-check">
-                <input name="__{{i}}" id="switch_point_{{i}}_1" type="radio" class="form-check-input col switch_point">
-                <label class="rado-inline">${{i}}</label>
-            </div>
-        </div>
-    {% endfor %}
-    <div class="row">
-        <div class="col-6">(Attention check) Please select Tournament for this row:</div>
-        <input type="hidden" name="attention_check" value="False"/>
-        {% comment %} <div class="col-1"></div> {% endcomment %}
-        <div class="col-3 form-check">
-            <label class="radio-inline"></label>
-            <input name="attention_check_button" id="attention_check_False" type="radio" class="form-check-input col attention_check_radio">
-        </div>
-        <div class="col-2 form-check">
-            <input name="attention_check_button" id="attention_check_True" type="radio" class="form-check-input col attention_check_radio">
-            <label class="radio-inline"></label>
-        </div>
-    </div>
-    <br>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Piece Rate</th>
+                <th scope="col"></th>
+                <th scope="col">Tournament</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <input type="hidden" name="game_4_switch" value="False"/>
+            {% for i in Constants.round_values %}
+            <tr>
+                <td>
+                    If the tournament prize is {{i}}, which scheme do you choose:
+                </td>
+                <div class="form-check">
+                <td>
+                    <label class="radio">$0.50</label>
+                </td>
+                <td>
+                    <input name="__{{i}}" id="switch_point_{{i}}_0" type="radio" class="form-check-input switch_point">
+                </td>
+                </div>
+                <div class="form-check">
+                <td>
+                    <label class="radio-inline">${{i}}</label>
+                </td>
+                <td>
+                    <input name="__{{i}}" id="switch_point_{{i}}_1" type="radio" class="form-check-input switch_point">
+                </td>
+                </div>
+    
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>
+                    (Attention check) Please select Tournament for this row:
+                </td>
+                <input type="hidden" name="attention_check" value="False"/>
+                <td></td>
+                <td>
+                    <input name="attention_check_button" id="attention_check_False" type="radio" class="form-check-input attention_check_radio">
+                </td>
+                <td></td>
+                <td>
+                    <input name="attention_check_button" id="attention_check_True" type="radio" class="form-check-input attention_check_radio">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
     {% delayed_next %}
 
 
