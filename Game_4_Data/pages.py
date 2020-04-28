@@ -35,7 +35,6 @@ class Data(Page):
             self.session.config['round_values'],
             win_condition
         )
-        print(potential_payouts)
         self.player.value_chosen = float(self.participant.vars['game_4_value'])
         self.player.payout = potential_payouts[self.participant.vars['game_4_value']]
         if self.player.value_chosen < self.player.switch:

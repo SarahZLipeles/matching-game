@@ -18,8 +18,6 @@ class Selection(Page):
     def before_next_page(self):
         # user has 90 seconds to complete as many pages as possible
         self.participant.vars['game_4_switch'] = self.player.game_4_switch
-        self.participant.vars['game_4_value'] = random.choice(payment_values)
-        self.participant.vars['expiry'] = time.time() + self.session.config["seconds_for_counting_task"]
     def vars_for_template(self):
         game_1_score = 0
         try: # try catch since apps are skipped in testing
