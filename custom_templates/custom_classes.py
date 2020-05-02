@@ -64,3 +64,9 @@ class DataPlayer(BasePlayer):
         )
         data = dict(filter(lambda elem: elem[0] not in base_attrs, data.items()))
         return data
+
+    def dump_vars(self, game_name, parvars):
+        data = self.data()
+        for key, val in data.items():
+            game_key = '%s_%s' % (game_name, key)
+            parvars[game_key] = val

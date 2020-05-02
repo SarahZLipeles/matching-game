@@ -8,7 +8,10 @@ import json
 
 class Data(Page):
     def is_displayed(self):
-        return self.session.config['data_pages_enabled']
+        if self.session.config['data_pages_enabled']:
+            return True
+        else:
+            return self.vars_for_template()
     def vars_for_template(self):
         game_name = Constants.game_name
 
@@ -35,6 +38,7 @@ class Data(Page):
         self.player.payout = potential_payouts['%s' % payment_condition(1)]
         self.player.scheme = 'Tournament'
         self.participant.vars[game_name + '_scheme'] = self.player.scheme
+        self.dump_vars(game_name, self.participant.vars)
         return {
             'data' : self.player.data()
         }

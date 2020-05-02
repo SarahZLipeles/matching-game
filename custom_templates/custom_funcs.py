@@ -17,15 +17,15 @@ def get_game_score(game_name, player):
 
 def get_game_group_scores(game_name, player, participants):
     game_score_key = get_game_score_key(game_name)
-    game_group_score_key = game_name + '_group_score'
-    if (game_name + '_group_score') in player.participant.vars:
-        return player.participant.vars[game_group_score_key]
+    game_group_scores_key = game_name + '_group_scores'
+    if (game_name + '_group_scores') in player.participant.vars:
+        return player.participant.vars[game_group_scores_key]
     group = random.choices(participants, k=3)
     group_scores = list(map(lambda p: p[game_score_key], group))
     group_scores.append(get_game_score(game_name, player))
     group_scores.sort()
     group_scores.reverse()
-    player.participant.vars[game_group_score_key] = group_scores
+    player.participant.vars[game_group_scores_key] = group_scores
     return group_scores
 
 
