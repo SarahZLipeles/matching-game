@@ -38,7 +38,7 @@ class Data(Page):
         self.player.payout = potential_payouts['%s' % payment_condition(1)]
         self.player.scheme = 'Tournament'
         self.participant.vars[game_name + '_scheme'] = self.player.scheme
-        self.dump_vars(game_name, self.participant.vars)
+        self.player.dump_vars(game_name, self.participant.vars)
         return {
             'data' : self.player.data()
         }

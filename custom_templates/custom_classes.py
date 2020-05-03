@@ -33,13 +33,14 @@ class DataPlayer(BasePlayer):
     def calc_stats(self, game_name, participants, source_game=None):
         (
             self.score,
-            self.group_scores,
+            group_scores,
             self.place,
             self.won_tiebreaker
         ) = get_game_stats(
             source_game or game_name,
             self,
             participants)
+        self.group_scores = json.dumps(group_scores)
 
     def calc_potential_payouts(self, round_values, lam=lambda a:a):
         potential_payouts = {}

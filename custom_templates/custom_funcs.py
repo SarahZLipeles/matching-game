@@ -25,7 +25,6 @@ def get_game_group_scores(game_name, player, participants):
     group_scores.append(get_game_score(game_name, player))
     group_scores.sort()
     group_scores.reverse()
-    player.participant.vars[game_group_scores_key] = group_scores
     return group_scores
 
 
@@ -41,14 +40,12 @@ def get_tiebreaker(game_name, player, participants):
     if num_ties == 1:
         return None
     tiebreaker = random.randint(1,num_ties) == 1
-    player.participant.vars[tiebreaker_key] = tiebreaker
     return tiebreaker
 
 def get_game_stats(game_name, player, participants):
-    # participants.append(player.participant.vars)
     return (
         get_game_score(game_name, player),
-        json.dumps(get_game_group_scores(game_name, player, participants)),
+        get_game_group_scores(game_name, player, participants),
         get_game_place(game_name, player, participants),
         get_tiebreaker(game_name, player, participants)
     )
@@ -56,6 +53,7 @@ def get_game_stats(game_name, player, participants):
 def get_game_place(game_name, player, participants):
     score = get_game_score(game_name, player)
     group_scores = get_game_group_scores(game_name, player, participants)
+    print(type(group_scores))
     return group_scores.index(score) + 1
 
 def set_score(game_name, player, score):
@@ -63,7 +61,7 @@ def set_score(game_name, player, score):
     prev_score = None
     if game_score_key in player.participant.vars:
         prev_score = player.participant.vars[game_score_key]
-    player.participant.vars[game_score_key] = score
+    # player.participant.vars[game_score_key] = score
     return prev_score
 
 def get_game_score_key(game_name):
