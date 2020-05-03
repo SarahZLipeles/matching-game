@@ -70,4 +70,6 @@ class DataPlayer(BasePlayer):
         data = self.data()
         for key, val in data.items():
             game_key = '%s_%s' % (game_name, key)
+            if ('group_scores' in key):
+                val = json.loads(val)
             parvars[game_key] = val
