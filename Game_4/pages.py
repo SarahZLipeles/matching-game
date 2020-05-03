@@ -9,7 +9,7 @@ payment_values = [0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50]
 class Instructions(Page):
     def vars_for_template(self):
         return {
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 class Selection(Page):
@@ -26,7 +26,7 @@ class Selection(Page):
             pass
         return {
             'game_1_score': game_1_score,
-            'participant_vars': str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 

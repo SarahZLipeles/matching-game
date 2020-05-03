@@ -10,7 +10,7 @@ class Instructions(Page):
         self.participant.vars['expiry'] = time.time() + self.session.config["seconds_for_counting_task"]
     def vars_for_template(self):
         return {
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 

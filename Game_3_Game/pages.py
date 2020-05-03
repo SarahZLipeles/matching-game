@@ -32,7 +32,7 @@ class Game_3(Page):
             'round': self.player.round_number-1,
             'game_1': game_1,
             'value': value,
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 

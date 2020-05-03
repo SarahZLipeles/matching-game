@@ -26,7 +26,7 @@ class Game_5(Page):
             "answer": num_zeros,
             "score": self.player.get_score(),
             "round": self.player.round_number-1,
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 

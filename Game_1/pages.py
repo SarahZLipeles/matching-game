@@ -17,7 +17,7 @@ class Instructions(Page):
         return {
             "img": "boxes/" + img,
             "answer": num_zeros,
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 

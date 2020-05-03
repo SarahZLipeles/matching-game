@@ -24,7 +24,7 @@ class Game_2(Page):
         return {
             "img": img,
             "answer": num_zeros,
-            "participant_vars": str(self.participant.vars),
+            'participant_vars': self.participant.vars,
             "score": self.player.get_score(),
             "round": self.player.round_number-1
         }

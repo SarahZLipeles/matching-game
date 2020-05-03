@@ -7,7 +7,7 @@ import time, random
 class Instructions(Page):
     def vars_for_template(self):
         return {
-            'participant_vars': str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
     pass
 
@@ -20,7 +20,7 @@ class Selection(Page):
         self.participant.vars['game_3_piece_rate'] = float(self.participant.vars['game_3_payment']) < float(self.participant.vars['game_3_switch'])
     def vars_for_template(self):
         return {
-            'participant_vars': str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 class Selection_Results(Page):
@@ -28,7 +28,7 @@ class Selection_Results(Page):
         self.participant.vars['expiry'] = time.time() + self.session.config["seconds_for_counting_task"]
     def vars_for_template(self):
         return {
-            'participant_vars': str(self.participant.vars),
+            'participant_vars': self.participant.vars,
             'value': self.participant.vars['game_3_payment'],
             'game_1': self.participant.vars['game_3_piece_rate']
         }

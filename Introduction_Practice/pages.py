@@ -13,7 +13,7 @@ class Practice(Page):
         return {
             "img": img,
             "answer": num_zeros,
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 page_sequence = [Practice]

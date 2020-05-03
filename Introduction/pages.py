@@ -7,14 +7,14 @@ from custom_templates.custom_funcs import get_box
 class Intro(Page):
     def vars_for_template(self):
         return {
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
     pass
 
 class Instructions(Page):
     def vars_for_template(self):
         return {
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
     pass
 
@@ -24,7 +24,7 @@ class Counting_Task(Page):
         return {
             "img": "boxes/" + img,
             "answer": num_zeros,
-            "participant_vars": str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 

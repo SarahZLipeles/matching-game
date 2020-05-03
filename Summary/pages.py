@@ -93,7 +93,7 @@ class Summary(Page):
             'payment': payment,
             'payout': payout,
             'payment_value': payment_value,
-            'participant_vars': str(self.participant.vars)
+            'participant_vars': self.participant.vars
         }
 
 
