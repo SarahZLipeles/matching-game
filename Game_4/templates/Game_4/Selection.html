@@ -1,0 +1,131 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+{% load custom_tags %}
+
+{% block title %}
+    Game 4 – Choice-II
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        You have completed {{ game_1_score }} boxes in Game-1 Piece Rate
+    </p>
+
+    <p>
+        Please select which payment scheme you prefer to apply to your performance in Game-4 for each possible tournament prize. Each prize has an equal chance of being chosen. We ask you to indicate your choices by selecting the lowest tournament prize that you are willing to accept. Once you do this, the remaining buttons will be filled in for you.
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Piece Rate</th>
+                <th scope="col"></th>
+                <th scope="col">Tournament</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <input type="hidden" name="game_4_switch" value="False"/>
+            {% for i in Constants.round_values %}
+            <tr>
+                <td>
+                    If the tournament prize is {{i}}, which scheme do you choose:
+                </td>
+                <div class="form-check">
+                <td>
+                    <label class="radio">$0.50</label>
+                </td>
+                <td>
+                    <input name="__{{i}}" id="switch_point_{{i}}_0" type="radio" class="form-check-input switch_point">
+                </td>
+                </div>
+                <div class="form-check">
+                <td>
+                    <label class="radio-inline">${{i}}</label>
+                </td>
+                <td>
+                    <input name="__{{i}}" id="switch_point_{{i}}_1" type="radio" class="form-check-input switch_point">
+                </td>
+                </div>
+    
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>
+                    (Attention check) Please select Tournament for this row:
+                </td>
+                <input type="hidden" name="attention_check" value="False"/>
+                <td></td>
+                <td>
+                    <input name="attention_check_button" id="attention_check_False" type="radio" class="form-check-input attention_check_radio">
+                </td>
+                <td></td>
+                <td>
+                    <input name="attention_check_button" id="attention_check_True" type="radio" class="form-check-input attention_check_radio">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    {% delayed_next %}
+
+
+<div class="modal fade" id="invalid-selection-modal" tabindex="-1" role="dialog"
+    aria-labelledby="invalid-selection-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="invalid-selection-modal-label">Invalid Selection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Please make your decision in order to proceed
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">$(() => {
+        $('.attention_check_radio').click(function() {
+            const idArr = $(this).attr('id').split('_');
+            const val = idArr[idArr.length-1];
+            $('[name="attention_check"]').attr('value', val);
+        });
+        $('.switch_point').click(function() {
+            const idArr = $(this).attr('id').split('_');
+            const side = idArr[idArr.length-1];
+            const val = idArr[idArr.length-2];
+            $('.switch_point').each(function() {
+                const currIdArr = $(this).attr('id').split('_');
+                const currSide = currIdArr[currIdArr.length-1];
+                const currVal = currIdArr[currIdArr.length-2];
+                const after = parseFloat(currVal) > parseFloat(val)
+                if (val === currVal) {
+                    if (currSide === '1') {
+                        $('[name="game_4_switch"]').attr('value', currVal);
+                    }
+                    console.log(currVal, currSide, side, side === currSide, this)
+                    $(this).prop('checked', side === currSide);
+                } else {
+                    $(this).prop('checked', after == parseInt(currSide));
+                }
+            });
+        });
+        $('#delayed-next-button').click(function(event) {
+            if ($('[name="game_4_switch"]').attr('value') === 'False') {
+                event.preventDefault();
+                $('#invalid-selection-modal').modal('show');
+            }
+        });
+    });
+    </script>
+{% endblock %}

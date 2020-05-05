@@ -19,7 +19,7 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'Survey'
-    players_per_group = 4
+    players_per_group = None
     num_rounds = 1
 
 
@@ -40,5 +40,5 @@ class Player(BasePlayer):
     participant_vars = models.LongStringField()
     game_1_group_scores = models.StringField()
     game_2_group_scores = models.StringField()
-    place_piece_rate = models.IntegerField()
-    place_tournament = models.IntegerField()
+    place_game_1 = models.IntegerField()
+    place_game_2 = models.IntegerField()
