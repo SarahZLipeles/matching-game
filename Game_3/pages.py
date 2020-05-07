@@ -30,7 +30,7 @@ class Selection_Results(Page):
         return {
             'participant_vars': self.participant.vars,
             'value': self.participant.vars['game_3_payment'],
-            'game_1': self.participant.vars['game_3_piece_rate']
+            'game_3_piece_rate': self.participant.vars['game_3_piece_rate']
         }
 
 
