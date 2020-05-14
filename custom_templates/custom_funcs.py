@@ -31,7 +31,7 @@ def get_game_group_scores(game_name, player, participants):
 def get_tiebreaker(game_name, player, participants):
     if get_game_place(game_name, player, participants) > 1:
         return None
-    tiebreaker_key = game_name + '_tiebreaker'
+    tiebreaker_key = game_name + '_won_tiebreaker'
     if tiebreaker_key in player.participant.vars:
         return player.participant.vars[tiebreaker_key]
     score = get_game_score(game_name, player)
