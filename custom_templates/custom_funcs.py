@@ -53,7 +53,6 @@ def get_game_stats(game_name, player, participants):
 def get_game_place(game_name, player, participants):
     score = get_game_score(game_name, player)
     group_scores = get_game_group_scores(game_name, player, participants)
-    print(type(group_scores))
     return group_scores.index(score) + 1
 
 def set_score(game_name, player, score):
