@@ -18,13 +18,14 @@ def get_game_score(game_name, player):
 def get_game_group_scores(game_name, player, participants):
     game_score_key = get_game_score_key(game_name)
     game_group_scores_key = game_name + '_group_scores'
-    if (game_name + '_group_scores') in player.participant.vars:
+    if (game_group_scores_key) in player.participant.vars:
         return player.participant.vars[game_group_scores_key]
     group = random.choices(participants, k=3)
     group_scores = list(map(lambda p: p[game_score_key], group))
     group_scores.append(get_game_score(game_name, player))
     group_scores.sort()
     group_scores.reverse()
+    player.participant.vars[game_group_scores_key] = group_scores
     return group_scores
 
 
@@ -51,8 +52,11 @@ def get_game_stats(game_name, player, participants):
     )
 
 def get_game_place(game_name, player, participants):
+    if player.place:
+        return player.place
     score = get_game_score(game_name, player)
     group_scores = get_game_group_scores(game_name, player, participants)
+    print(score, group_scores, group_scores.index(score))
     return group_scores.index(score) + 1
 
 def set_score(game_name, player, score):
