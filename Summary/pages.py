@@ -10,8 +10,10 @@ class Summary(Page):
     def vars_for_template(self):
         parvars = self.participant.vars
         if 'payment_game' in parvars:
-            payment_game = 'payment_game'
+            payment_game = parvars['payment_game']
+        else:
         payment_game = random.randint(1,5)
+
         parvars['payment_game'] = payment_game
         parvars['game_1_value'] = ['0.50']
         scheme = parvars['game_%d_scheme' % payment_game]
