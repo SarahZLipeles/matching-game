@@ -12,7 +12,7 @@ class Summary(Page):
         if 'payment_game' in parvars:
             payment_game = parvars['payment_game']
         else:
-        payment_game = random.randint(1,5)
+            payment_game = random.randint(1,5)
 
         parvars['payment_game'] = payment_game
         parvars['game_1_value'] = ['0.50']
@@ -27,7 +27,16 @@ class Summary(Page):
         #calc payout
         payment = parvars['game_%d_payout' % payment_game]
         payout = 2 + guess_payment + payment
-        payment_value = parvars['game_%d_value' % payment_game]
+        payment_value = None
+        if payment_game is not 5:
+            payment_value = parvars['game_%d_value' % payment_game]
+        else:
+            points_AB = json.loads(self.participant.vars['game_5_values'])
+            print(points_AB)
+            points_A = float(points_AB['Points_A'])/100
+            points_B = float(points_AB['Points_B'])/100
+            payment_value = 5 * points_B
+        
 
         return {
             'payment_game': payment_game,
