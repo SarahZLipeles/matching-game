@@ -15,6 +15,10 @@ class Selection(Page):
     form_model = 'player'
     form_fields = ['attention_check', 'game_3_switch']
     def before_next_page(self):
+        if (self.player.game_3_switch == Constants.round_values[0]):
+            self.player.game_3_switch = '0'
+        elif (self.player.game_3_switch == Constants.round_values[-1]):
+            self.player.game_3_switch = str(float(Constants.round_values[-1]) + 0.001)
         self.participant.vars['game_3_switch'] = self.player.game_3_switch
         self.participant.vars['game_3_payment'] = random.choice(Constants.round_values)
         self.participant.vars['game_3_piece_rate'] = float(self.participant.vars['game_3_payment']) < float(self.participant.vars['game_3_switch'])
