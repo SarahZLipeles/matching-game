@@ -36,7 +36,7 @@ class Summary(Page):
             points_A = float(points_AB['Points_A'])/100
             points_B = float(points_AB['Points_B'])/100
             payment_value = 5 * points_B
-        
+        self.player.participant_vars = json.dumps(parvars)
 
         return {
             'payment_game': payment_game,
