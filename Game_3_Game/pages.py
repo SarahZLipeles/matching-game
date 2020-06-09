@@ -22,7 +22,7 @@ class Game_3(Page):
             return upcoming_apps[0]
     def vars_for_template(self):
         value = self.participant.vars['game_3_payment']
-        game_1 = float(value) < float(self.participant.vars['game_3_switch'])
+        piece_rate = float(value) < float(self.participant.vars['game_3_switch'])
         img, num_zeros = get_box()
         self.participant.vars['game_3_value'] = value
         return {
@@ -30,7 +30,7 @@ class Game_3(Page):
             "answer": num_zeros,
             'score': self.player.get_score(),
             'round': self.player.round_number-1,
-            'game_1': game_1,
+            'piece_rate': piece_rate,
             'value': value,
             'participant_vars': self.participant.vars
         }
