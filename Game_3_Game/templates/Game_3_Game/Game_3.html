@@ -12,7 +12,7 @@
 </p>
 
 <p>
-    Your Payment Scheme: ${{ value }} {% if game_1 %} <strong>piece rate payment</strong> {% else %} <strong>Tournament Payment</strong> {% endif %}
+    Your Payment Scheme: {% if piece_rate %}$0.50 <strong>piece rate payment</strong> {% else %}${{ value }} <strong>Tournament Payment</strong> {% endif %}
 </p>
 
 {% counting_box "counting_box" img answer %}
