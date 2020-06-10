@@ -4,7 +4,8 @@ from .models import Constants
 import random, json
 
 
-payment_values = [0.50,0.75,1.00,1.25,1.50,1.75,2.00,2.25,2.50]
+payment_values = [0.25 0.50,0.75,1.00,1.25,1.50,1.75]
+guess_rate = 0.20
 
 class Summary(Page):
     def vars_for_template(self):
@@ -23,10 +24,10 @@ class Summary(Page):
         if parvars['game_%d_won_tiebreaker' % payment_game] not in (None, True):
             win = False
         # Calculate guess payment
-        guess_payment = int(parvars['game_1_place'] == parvars['belief_game_1']) + int(parvars['game_2_place'] == parvars['belief_game_2'])
+        guess_payment = guess_rate(int(parvars['game_1_place'] == parvars['belief_game_1']) + int(parvars['game_2_place'] == parvars['belief_game_2']))
         #calc payout
         payment = parvars['game_%d_payout' % payment_game]
-        payout = 2 + guess_payment + payment
+        payout = 1.5 + guess_payment + payment
         payment_value = None
         if payment_game is not 5:
             payment_value = parvars['game_%d_value' % payment_game]
