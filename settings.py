@@ -9,11 +9,11 @@ sample_participants = []
 with open('sample_participants.json') as sample_participants:
     sample_participants=json.load(sample_participants)
 SESSION_CONFIG_DEFAULTS = dict(
-    real_world_currency_per_point=1.00, participation_fee=0.00, doc="",
+    real_world_currency_per_point=1.00, participation_fee=1.50, doc="",
     data_pages_enabled=True,
     sample_participants=sample_participants,
     num_sample_participants=10,
-    round_values = ["0.50","0.75","1.00","1.25","1.50","1.75","2.00","2.25","2.50"],
+    round_values = ["0.25","0.50","0.75","1.00","1.25","1.50","1.75"],
     seconds_for_counting_task=90
 )
 
